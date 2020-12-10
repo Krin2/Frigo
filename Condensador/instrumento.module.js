@@ -1,13 +1,13 @@
 // Modelo generico instrumento
 
 class Instrumento {
-    constructor(tag,unidad) {
+    constructor(tag) {
     this.tag=tag;
     this.medicion=0;
     this.unidad=function (){
       switch (tag[0]) {
         case "T":
-          this.unidad="�C";
+          this.unidad="°C";
           break;
         case "P":
           this.unidad="bar";
@@ -22,19 +22,16 @@ class Instrumento {
           this.unidad="%";
       }
     }
-    var listaInstrumentos ={
-      tag :"",
-      medicion: 0,
-      unidad:""
-    };
   }
+}
 
-  agregarInstrumento = function (tag,unidad) {
-    var instrumento= new Instrumento(tag,unidad)
-    listaInstrumentos.push(instrumento);
+Instrumento.prototype.agregarInstrumento = function (this) {
+    listaInstrumentos.tag=this.tag;
+    listaInstrumentos.medicion=this.medicion;
+    listaInstrumentos.unidad.this.unidad;
   };
 
-  actualizarMedicion = function (tag,medicion) {
+  Instrumento.prototype.actualizarMedicion = function (tag,medicion) {
     listaInstrumentos.filter((elemento)=>{
       if (elemento.tag===tag){
         elemento.medicion=medicion;
@@ -44,5 +41,5 @@ class Instrumento {
 
   };
 
-}
+
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       

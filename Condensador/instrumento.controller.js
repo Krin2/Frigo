@@ -1,6 +1,11 @@
 // Controlador
 
 // se usara de vinculo entre el modelo (con los datos) y la Vista
+var listaInstrumentos ={
+  tag :"",
+  medicion: 0,
+  unidad:""
+};
 
 class controladorInstrumento {
   constructor(instrumento, VistaInstrumento) {

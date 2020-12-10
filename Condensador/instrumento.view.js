@@ -5,9 +5,8 @@ class VistaInstrumento {
   constructor() {
     //creacion de los elementos del DOM
      mostrarInstrumentos();
-     }
   }
-
+}
   VistaInstrumento.prototype.mostrarInstrumentos = function (listaInstrumentos) {
     var $contexto= document.querySelector("#Lecturas");
     var $columna= document.querySelector("#Lecturas").querySelector(".columna_1");
@@ -33,9 +32,16 @@ class VistaInstrumento {
         //incorporacion de elementos al contexto
         instrumento.append(tag, medicion, unidad);
         $columna.append(instrumento);
+
+        this.darFormato();
       });
-  };
-}
+    };
+  }
+
+  VistaInstrumento.prototype.darFormato= function(){
+    
+  }
+
 
 // class View {
 //   constructor() {
