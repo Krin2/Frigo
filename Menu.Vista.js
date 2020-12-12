@@ -53,7 +53,7 @@ MenuVista.prototype = {
       this.$menu[0].style["grid-area"]="menu";
       this.$menu[0].style.display= "grid";
       this.$menu[0].style["grid-template-areas"]='"m0" "m1" "m2"';
-      this.$menu[0].style["top-position"]="60px";
+      this.$menu[0].style["top-position"]="0px";
       this.$menu[0].style.gridTemplateColumns="80px";
       this.$menu[0].style.gridTemplateRows="20px 20px 20px";
 
