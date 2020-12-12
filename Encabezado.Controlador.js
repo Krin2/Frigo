@@ -13,15 +13,15 @@ EncabezadoControlador.prototype = {
 
     configurarManipuladores: function () {
         this.cambiarTituloManipulador=this.cambiarTitulo.bind(this);
-        this.actualizarFechaManipulador=this.actualizarFecha.bind(this);
-        this.actualizarHoraManipulador=this.actualizarHora.bind(this);
+        // this.actualizarFechaManipulador=this.actualizarFecha.bind(this);
+        // this.actualizarHoraManipulador=this.actualizarHora.bind(this);
         return this;
     },
 
     habilitar: function () {
         this.vistaEncabezado.eventoCambiarTitulo.adjuntar(this.cambiarTituloManipulador);
-        this.vistaEncabezado.eventoActualizarFecha.adjuntar(this.actualizarFechaManipulador);
-        this.vistaEncabezado.eventoActualizarHora.adjuntar(this.actualizarHoraManipulador);
+        // this.vistaEncabezado.eventoActualizarFecha.adjuntar(this.actualizarFechaManipulador);
+        // this.vistaEncabezado.eventoActualizarHora.adjuntar(this.actualizarHoraManipulador);
         return this;
     },
 
@@ -29,13 +29,13 @@ EncabezadoControlador.prototype = {
         this.modeloEncabezado.cambiarTitulo(args);
     },
 
-    actualizarFecha: function (sender, args) {
-        this.modeloEncabezado.actualizarFecha(args);
-    },
+    // actualizarFecha: function (sender, args) {
+    //     this.modeloEncabezado.actualizarFecha(args);
+    // },
 
-    actualizarHora: function (sender, args) {
-        this.modeloEncabezado.actualizarHora(args);
-    },
+    // actualizarHora: function (sender, args) {
+    //     this.modeloEncabezado.actualizarHora(args);
+    // },
 
 
 }

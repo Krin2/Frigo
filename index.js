@@ -4,25 +4,22 @@ $(function () {
   var controladorEncabezado = new EncabezadoControlador(modeloEncabezado, vistaEncabezado);
   vistaEncabezado.iniciar();
   controladorEncabezado.iniciar();
+  setInterval(actualizarFecha,1000);
+  setInterval(actualizarHora,1000);
   
-  setInterval(actualizarFecha, 1000);
-  setInterval(actualizarHora, 1000);
+  var vistaMenu = new MenuVista();
+  vistaMenu.iniciar();
+
+
  });
 
  actualizarFecha= function(){
-  document.querySelector('.p-fecha').textContent= getFecha();
-};
+   var ahora=new Date();
+   document.querySelector(".p-fecha").textContent=ahora.getDate()+"-"+(ahora.getMonth()+1)+"-"+ahora.getFullYear();
 
-actualizarHora= function(){
-  document.querySelector('.p-hora').textContent= getHora();
-};
+ };
 
-getFecha= function(){
-  let ahora=new Date();
-  return (ahora.getDate()+"-"+(ahora.getMonth()+1)+"-"+ahora.getFullYear());
-};
-
-getHora= function(){
-let ahora=new Date();
-return (ahora.getHours()+":"+ahora.getMinutes()+":"+ahora.getSeconds());
-};
+ actualizarHora= function(){
+   var ahora=new Date();
+  document.querySelector(".p-hora").textContent= ahora.getHours()+":"+ahora.getMinutes()+":"+ahora.getSeconds();
+ };
