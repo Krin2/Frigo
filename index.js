@@ -10,16 +10,21 @@ $(function () {
   var vistaMenu = new MenuVista();
   vistaMenu.iniciar();
 
+  var vistaEstados = new EstadosVista();
+  vistaEstados.iniciar();
+
+  var vistaLecturas = new LecturasVista();
+  vistaLecturas.iniciar();
 
  });
 
  actualizarFecha= function(){
    var ahora=new Date();
-   document.querySelector(".p-fecha").textContent=ahora.getDate()+"-"+(ahora.getMonth()+1)+"-"+ahora.getFullYear();
+   document.querySelector(".p-fecha").textContent=("0"+ahora.getDate()).slice(-2)+"-"+("0"+(ahora.getMonth()+1)).slice(-2)+"-"+ahora.getFullYear();
 
  };
 
  actualizarHora= function(){
    var ahora=new Date();
-  document.querySelector(".p-hora").textContent= ahora.getHours()+":"+ahora.getMinutes()+":"+ahora.getSeconds();
+   document.querySelector(".p-hora").textContent= ("0"+ahora.getHours()).slice(-2)+":"+("0"+ahora.getMinutes()).slice(-2)+":"+("0"+ahora.getSeconds()).slice(-2);
  };
