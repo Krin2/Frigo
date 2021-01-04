@@ -58,14 +58,10 @@ EncabezadoVista.prototype = {
       this.$contenedor[0].style["position"]="absolute";
       this.$contenedor[0].style["top-position"]="20px";
       this.$contenedor[0].style.width="100%";
-      // this.$contenedor[0].style.height="100%";
+ 
       this.$contenedor[0].style["grid-template-areas"]='"encabezado encabezado""menu estados""menu lecturas""menu comandos"';
       this.$contenedor[0].style.gridTemplateColumns="80px auto";
       this.$encabezado[0].style.gridTemplateRows="60px auto auto auto";
-    //   this.$contenedor[0].style["grid-template-areas"]=(
-    //   "t1c1 t1c1 t1c1 t1c1 t1c2 t1c2 t1c2 t1c2 t1c3 t1c3 t1c3 t1c3"
-    //   "t2c1 t2c1 t2c1 t2c1 t2c2 t2c2 t2c2 t2c2 t2c3 t2c3 t2c3 t2c3"
-    //   "t3c1 t3c1 t3c1 t3c1 t3c2 t3c2 t3c2 t3c2 t3c3 t3c3 t3c3 t3c3");
     },
 
     encabezadoCSS: function(){
