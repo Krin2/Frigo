@@ -40,15 +40,6 @@ MenuVista.prototype = {
         return this;
     },
 
-    // botonCambiarTitulo: function () {
-    //     this.eventoCambiarTitulo.notificar(this.$textBoxTitulo.val());
-    // },
-    //
-    // cambiarTitulo: function (sender, args) {
-    //   var pTitulo = this.modelo.getTitulo();
-    //   this.$pTitulo[0].textContent=pTitulo;
-    // },
-
     menuCSS: function(){
       this.$menu[0].style["grid-area"]="menu";
       this.$menu[0].style.display= "grid";

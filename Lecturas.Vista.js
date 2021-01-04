@@ -108,14 +108,6 @@ LecturasVista.prototype = {
         this.style["text-shadow"]="none";
       };
     },
-    // botonCambiarTitulo: function () {
-    //     this.eventoCambiarTitulo.notificar(this.$textBoxTitulo.val());
-    // },
-    //
-    // cambiarTitulo: function (sender, args) {
-    //   var pTitulo = this.modelo.getTitulo();
-    //   this.$pTitulo[0].textContent=pTitulo;
-    // },
 
     lecturasCSS: function(){
       this.$lecturas[0].style["grid-area"]="lecturas";
