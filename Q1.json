@@ -13,7 +13,7 @@
         "FORZADOR 2",
         "FORZADOR 3",
         "FORZADOR 4",
-        "FORZADOR 5",
+        "FORZADOR 5"
     ],
     "contenidoEstados":[],    
     "entradasDigitales":{
@@ -26,7 +26,7 @@
         "arranque finalizado forzador 2":"false",
         "arranque finalizado forzador 3":"false",
         "arranque finalizado forzador 4":"false",
-        "arranque finalizado forzador 5":"false",
+        "arranque finalizado forzador 5":"false"
     },
     "salidas digitales":{
         "arranque bomba 1":"false",
@@ -35,7 +35,7 @@
         "arranque forzador 2":"false",
         "arranque forzador 3":"false",
         "arranque forzador 4":"false",
-        "arranque forzador 5":"false",
+        "arranque forzador 5":"false"
     },
     "entradasAnalogicas":{
         "PQ1":{
@@ -45,7 +45,7 @@
             }   
     },
     "salidasAnalogicas":{
-        
+
     }
 
     
