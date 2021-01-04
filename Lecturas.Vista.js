@@ -123,8 +123,7 @@ LecturasVista.prototype = {
       this.$lecturas[0].style.display= "grid";
       this.$lecturas[0].style["grid-template-areas"]='"l0 l1 l2" "l3 l4 l5" "l6 l7 l8"';
       this.$lecturas[0].style.gridTemplateColumns="33% 33% 33%";
-      this.$lecturas[0].style.gridTemplateRows="auto auto auto";
-
+      this.$lecturas[0].style.gridTemplateRows="40px 40px 40px";
       
     },
 
