@@ -1,34 +1,73 @@
 var LecturasVista = function () {
     this.modelo = "";
+    this.listaInstrumentos=[];
     // this.eventoCambiarTitulo = new Eventos(this);
 };
 
 LecturasVista.prototype = {
 
     iniciar: function () {
-        this.crearLecturas
-    ();
+        this.crearLecturas();
             // .configurarManipuladores()
             // .habilitar();
         this.lecturasCSS();
     },
 
-    crearLecturas
-: function () {
+    crearLecturas: function () {
         // captura los objetos del html
         this.$contenedor = $('.contenedor');
-        this.$lecturas
-     = this.$contenedor.find('.lecturas');
+        this.$lecturas = this.$contenedor.find('.lecturas');
+        var instrumento=[]; 
+        for(var i=0;i<8;i++){
+        instrumento[i] = document.createElement("div");
+        var tag= document.createElement("div");
+        var unidad= document.createElement("div");
+        var medicion=document.createElement("div");
+        //asignacion de clase
+        instrumento[i].className="instrumento";
+        tag.className="nombre-instrumento";
+        unidad.className="unidades";
+        medicion.className="medicion-instrumento";
 
-        for(var i=0;i<3;i++){
-          var opcion=document.createElement("button");
-          opcion.className="opcion";
-          opcion.textContent="Opcion "+i;
-          opcion.style["grid-area"]="m"+i;
-          this.$lecturas[0].appendChild(opcion);
+        //Asignacion de valores
+        tag.textContent="PIT-100"+i;
+        unidad.textContent="bar";
+        medicion.textContent=i*7/2+i;
+
+        instrumento[i].append(tag, medicion, unidad);
+        instrumento[i].style["grid-area"]="l"+i;
+
+        this.$lecturas[0].appendChild(instrumento[i]);
+
+        this.darFormatoInstrumento(instrumento[i]);
+        this.listaInstrumentos.push(instrumento[i]);
         };
-        this.$opcion = this.$contenedor.find('.opcion');
-
+        
+        /* if (listaInstrumentos!==null){
+        listaInstrumentos.forEach(elemento => {
+          var instrumento = document.createElement("div")
+          var tag= document.createElement("div")
+          var unidad= document.createElement("div")
+          var medicion=document.createElement("div")
+          //asignacion de clase
+          instrumento.className="instrumento";
+          tag.className="nombre-instrumento";
+          unidad.className="unidades";
+          medicion.className="medicion-instrumento";
+  
+          //Asignacion de valores
+          tag.textContent=elemento.tag;
+          unidad.textContent=elemento.unidad;
+          medicion.textContent=elemento.medicion;
+  
+          //incorporacion de elementos al contexto
+          instrumento.append(tag, medicion, unidad);
+          $columna.append(instrumento);
+  
+          
+          });
+        }; */
+  
       },
 
     configurarManipuladores: function () {
@@ -43,6 +82,32 @@ LecturasVista.prototype = {
         return this;
     },
 
+    darFormatoInstrumento: function(elemento){
+      elemento.children[1].style["font-size"]="1.5em";
+      elemento.children[1].style["font-family"]="'Squada One', cursive";
+    
+      elemento.backgroundColor="rgba(100,100,100,1)";
+      elemento.style.margin="3px 3px 3px 3px";
+      elemento.style["border-color"]="black";
+      elemento.style["border-radius"]="3px";
+      elemento.style["width"]="140px";
+      elemento.style["display"]="flex";
+      elemento.style["color"]=" rgba(100,200,100,1)";
+      elemento.style["justify-content"]="space-around";
+    
+      elemento.onmouseover=function(){
+        this.style["border-color"]="red";
+        this.style["border-style"]="solid";
+        this.style["border-width"]="thin";
+        this.style["text-shadow"]="0px 0px 10px rgba(100,1,0,1)";
+      };
+      elemento.onmouseleave=function(){
+        this.style["border-color"]="black";
+        this.style["border-style"]="solid";
+        this.style["border-width"]="thin";
+        this.style["text-shadow"]="none";
+      };
+    },
     // botonCambiarTitulo: function () {
     //     this.eventoCambiarTitulo.notificar(this.$textBoxTitulo.val());
     // },
@@ -53,24 +118,14 @@ LecturasVista.prototype = {
     // },
 
     lecturasCSS: function(){
-      this.$lecturas
-    [0].style["grid-area"]="lecturas";
-      this.$lecturas[0].style.display= "grid";
-      this.$lecturas[0].style["grid-template-areas"]='"m0" "m1" "m2"';
+      this.$lecturas[0].style["grid-area"]="lecturas";
       this.$lecturas[0].style["top-position"]="60px";
-      this.$lecturas[0].style.gridTemplateColumns="80px";
-      this.$lecturas[0].style.gridTemplateRows="20px 20px 20px";
+      this.$lecturas[0].style.display= "grid";
+      this.$lecturas[0].style["grid-template-areas"]='"l0 l1 l2" "l3 l4 l5" "l6 l7 l8"';
+      this.$lecturas[0].style.gridTemplateColumns="33% 33% 33%";
+      this.$lecturas[0].style.gridTemplateRows="auto auto auto";
 
-      for(var i=0;i<3;i++){
-        this.$opcion[i].style.backgroundColor="grey";
-        this.$opcion[i].style.margin="1px 1px 1px 1px";
-        this.$opcion[i].style["border-color"]="black";
-        this.$opcion[i].style["border-radius"]="3px";
-      }
+      
     },
 
-
-
-
-
-}
+};
