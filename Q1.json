@@ -1,0 +1,52 @@
+ {
+    "titulo": "Condensador 1",
+    "tag": "Q1",
+    "servicio": "",
+    "tituloEstados":[
+        "SERVICIO",
+        "ESTADO EQUIPO",
+        "NIVEL BATEA",
+        "BOMBA DE AGUA 1",
+        "BOMBA DE AGUA 2",
+        "PRIORIDAD",
+        "FORZADOR 1",
+        "FORZADOR 2",
+        "FORZADOR 3",
+        "FORZADOR 4",
+        "FORZADOR 5",
+    ],
+    "contenidoEstados":[],    
+    "entradasDigitales":{
+        "automatico":"false",
+        "manual":"false",
+        "nivel":"false",
+        "arranque finalizado bomba 1":"false",
+        "arranque finalizado bomba 2":"false",
+        "arranque finalizado forzador 1":"false",
+        "arranque finalizado forzador 2":"false",
+        "arranque finalizado forzador 3":"false",
+        "arranque finalizado forzador 4":"false",
+        "arranque finalizado forzador 5":"false",
+    },
+    "salidas digitales":{
+        "arranque bomba 1":"false",
+        "arranque bomba 2":"false",
+        "arranque forzador 1":"false",
+        "arranque forzador 2":"false",
+        "arranque forzador 3":"false",
+        "arranque forzador 4":"false",
+        "arranque forzador 5":"false",
+    },
+    "entradasAnalogicas":{
+        "PQ1":{
+            "tag":"PIT-1001",
+            "unidades":"bar",
+            "medicion": "12.3"
+            }   
+    },
+    "salidasAnalogicas":{
+        
+    }
+
+    
+}
