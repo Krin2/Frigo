@@ -16,6 +16,8 @@ $(function () {
   var vistaLecturas = new LecturasVista();
   vistaLecturas.iniciar();
 
+  var vistaComandos = new ComandosVista();
+  vistaComandos.iniciar();
  });
 
  actualizarFecha= function(){
