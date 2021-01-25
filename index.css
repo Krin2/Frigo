@@ -1,0 +1,47 @@
+@media screen and (max-width: 360px) {
+    .contenedor{
+        grid-template-areas: 'encabezado'
+                            'menu'
+                            'estados'
+                            'lecturas'
+                            'comandos';
+    }
+    .estados{
+        grid-template-areas:'te0' 'ce0'  'te1' 'ce1' 'te2' 'ce2' 'te3' 'ce3' 'ce4' 'te4' 'ce5' 'te5' 'ce6' 'te6' 'ce7' 'te7';
+        grid-template-columns: teColumns='auto';
+        grid-template-rows: '20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px';
+    }
+  }
+
+
+@media screen and (max-width: 500px) and (min-width: 360px) {
+    .contenedor{
+        grid-template-areas: 'encabezado encabezado'
+                            'menu estados'
+                            'menu lecturas'
+                            'menu comandos';
+    }
+    .estados{
+        grid-template-areas:'te0 ce0' 'te1 ce1' 'te2 ce2' 'te3 ce3' 'ce4 te4' 'ce5 te5' 'ce6 te6' 'ce7 te7';
+        grid-template-columns: teColumns='80px auto';
+        grid-template-rows: '20px 20px 20px 20px 20px 20px 20px 20px';
+    }
+  }
+
+  @media screen and (min-width: 500px) {
+    .contenedor{
+        grid-template-areas: 'encabezado encabezado'
+                            'menu estados'
+                            'menu lecturas'
+                            'menu comandos';
+      grid-gap: 3px;
+      padding: 3px;
+    }
+
+    .estados{
+        grid-template-areas:'te0 ce0 ce4 te4' 'te1 ce1 ce5 te5' 'te2 ce2 ce6 te6' 'te3 ce3 ce7 te7';
+        top:'0px';
+        grid-template-columns: teColumns='80px auto auto 80px';
+        grid-template-rows: '20px 20px 20px 20px';
+    }
+}

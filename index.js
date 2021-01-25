@@ -1,4 +1,6 @@
+
 $(function () {
+  //---Encabezado
   var modeloEncabezado = new EncabezadoModelo();
   var vistaEncabezado = new EncabezadoVista(modeloEncabezado);
   var controladorEncabezado = new EncabezadoControlador(modeloEncabezado, vistaEncabezado);
@@ -7,17 +9,27 @@ $(function () {
   setInterval(actualizarFecha,1000);
   setInterval(actualizarHora,1000);
   
+  //---Menu
   var vistaMenu = new MenuVista();
   vistaMenu.iniciar();
 
-  var vistaEstados = new EstadosVista();
+  //---Estados
+  var modeloEstados = new EstadosModelo();
+  var vistaEstados = new EstadosVista(modeloEstados);
+  var controladorEstados = new EstadosControlador(modeloEstados, vistaEstados);
   vistaEstados.iniciar();
+  controladorEstados.iniciar();
 
+//---Lecturas
   var vistaLecturas = new LecturasVista();
   vistaLecturas.iniciar();
 
+  //---Comandos
   var vistaComandos = new ComandosVista();
   vistaComandos.iniciar();
+
+  //----------------
+  
  });
 
  actualizarFecha= function(){

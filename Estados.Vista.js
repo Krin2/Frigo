@@ -1,31 +1,33 @@
-var EstadosVista = function () {
-    this.modelo = "";
-    // this.eventoCambiarTitulo = new Eventosethis);
+var EstadosVista = function (modelo) {
+    this.modelo = modelo;
+    this.eventoLlenarTitulos = new Eventos(this);
+    this.eventoActualizarContenido = new Eventos(this);
 };
 
 EstadosVista.prototype = {
 
     iniciar: function () {
-        this.crearEstados();
+        this.crearEstados()
             // .configurarManipuladores()
-            // .habilitar();
+            .habilitar();
         this.estadosCSS()},
 
     crearEstados: function () {
         // captura los objetos del html
         this.$contenedor = $('.contenedor');
         this.$estados = this.$contenedor.find('.estados');
-
+        
+        
         for(var i=0;i<8;i++){
           var tituloEstados=document.createElement("div");
           tituloEstados.className="titulo-estados";
-          tituloEstados.textContent="Estados "+i;
+          tituloEstados.textContent=this.modelo.tituloEstados[i];
           tituloEstados.style["grid-area"]="te"+i;
           this.$estados[0].appendChild(tituloEstados);
 
           var contenidoEstados=document.createElement("div");
           contenidoEstados.className="contenido-estados";
-          contenidoEstados.textContent="Estados "+i;
+          contenidoEstados.textContent=this.modelo.contenidoEstados[i];
           contenidoEstados.style["grid-area"]="ce"+i;
           this.$estados[0].appendChild(contenidoEstados);
         };
@@ -34,34 +36,30 @@ EstadosVista.prototype = {
       },
 
     configurarManipuladores: function () {
-        // this.botonCambiarTituloManipulador= this.botonCambiarTitulo.bind(this);
-        // this.cambiarTituloManipulador = this.cambiarTitulo.bind(this);
+        //this.botonCambiarTituloManipulador= this.botonCambiarTitulo.bind(this);
+        this.actualizarContenidoManipulador = this.actualizarContenido.bind(this);
         return this;
     },
 
     habilitar: function () {
         // this.$botonCambiarTitulo.click(this.botonCambiarTituloManipulador);
-        // this.modelo.eventoCambiarTitulo.adjuntar(this.cambiarTituloManipulador);
+        this.modelo.eventoActualizarContenido.adjuntar(this.actualizarContenidoManipulador);
         return this;
     },
 
-    // botonCambiarTitulo: function () {
-    //     this.eventoCambiarTitulo.notificar(this.$textBoxTitulo.val());
-    // },
-    //
-    // cambiarTitulo: function (sender, args) {
-    //   var pTitulo = this.modelo.getTitulo();
-    //   this.$pTitulo[0].textContent=pTitulo;
-    // },
+    actualizarContenido: function(){
+        this.modelo.actualizarContenido();
+    },
 
+ 
     estadosCSS: function(){
       // this.$estados[0].style["background-color"]="rgba(200,200,200,1)";
       this.$estados[0].style["grid-area"]="estados";
       this.$estados[0].style.display= "grid";
-      this.$estados[0].style["grid-template-areas"]='"te0 ce0 ce4 te4" "te1 ce1 ce5 te5" "te2 ce2 ce6 te6" "te3 ce3 ce7 te7"';
-      this.$estados[0].style["top-position"]="0px";
-      this.$estados[0].style.gridTemplateColumns="80px auto auto 80px";
-      this.$estados[0].style.gridTemplateRows="20px 20px 20px 20px";
+      // this.$estados[0].style["grid-template-areas"]='"te0 ce0 ce4 te4" "te1 ce1 ce5 te5" "te2 ce2 ce6 te6" "te3 ce3 ce7 te7"';
+      // this.$estados[0].style["top-position"]="0px";
+      // this.$estados[0].style.gridTemplateColumns="80px auto auto 80px";
+      // this.$estados[0].style.gridTemplateRows="20px 20px 20px 20px";
 
 
       
@@ -87,9 +85,5 @@ EstadosVista.prototype = {
         
       }
     },
-
-
-
-
 
 }

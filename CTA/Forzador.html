@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CTA 300</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.js"
+      integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM="
+      crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="cta.css">
+  </head>
+  <body>
+
+    <header class="encabezado">
+      <!-- <p> -->
+        <div class="p-titulo" >CTA 300</div>
+        <div class="p-fecha" onload="actualizarFecha"></div>
+        <div class="p-hora" onload="actualizarHora"></div>
+      <!-- </p> -->
+    </header>
+
+    <div class="contenedor">
+      <canvas id="canvas" width="800px" height="600px"></canvas>
+      <!-- <script src="..\Eventos.js"></script> -->
+      <script src="./lib/sala.modulo.js"></script>
+      <script src="./lib/tuberia.modulo.js"></script>
+      <script src="./lib/forzador.modulo.js"></script>
+      <script src="./lib/reja.modulo.js"></script>
+      <script src=".lib/filtro.modulo.js"></script>
+      <script src='./lib/circuito.modulo.js'></script>
+      <script src="cta.js"></script>
+    </div>
+
+    <article class="comando" display="inline">
+      <table style="text-align:left">
+        <td>
+
+       <form action="" id="form-comando-forzadores">
+           <p>
+             <label for="velocidad" style="margin-left: 16px; margin:right:16px;vertical-align: top">Forzador 1 </label>
+             <input type="button" id="b-arrancar-F1" name="arrancar" value=" ↑ ">
+             <input type="button" id="b-detener-F1" name="detener" value=" ↓ ">
+             <label for="velocidad" style="margin-left: 16px; margin:right:16px;vertical-align: top">Vel </label>
+             <input type="range" id ="vel-F1" form="vel" max="100" min="1" step="1" value="10" ></span>
+           </p>
+
+           <p>
+             <label for="velocidad" style="margin-left: 16px; margin:right:16px;vertical-align: top">Forzador 2 </label>
+             <input type="button" id="b-arrancar-F2" name="arrancar" value=" ↑ ">
+             <input type="button" id="b-detener-F2" name="detener" value=" ↓ ">
+             <label for="velocidad" style="margin-left: 16px; margin:right:16px;vertical-align: top">Vel </label>
+             <input type="range" id ="vel-F2" form="vel" max="100" min="1" step="1" value="10" ></span>
+           </p>
+
+           <p>
+             <label for="velocidad" style="margin-left: 16px; margin:right:16px;vertical-align: top">Forzador 3 </label>
+             <input type="button" id="b-arrancar-F3" name="arrancar" value=" ↑ ">
+             <input type="button" id="b-detener-F3" name="detener" value=" ↓ ">
+             <label for="velocidad" style="margin-left: 16px; margin:right:16px;vertical-align: top">Vel </label>
+             <input type="range" id ="vel-F3" form="vel" max="100" min="1" step="1" value="10" ></span>
+           </p>
+
+           <p>
+             <label for="velocidad" style="margin-left: 16px; margin:right:16px;vertical-align: top">Forzador 4 </label>
+             <input type="button" id="b-arrancar-F4" name="arrancar" value=" ↑ ">
+             <input type="button" id="b-detener-F4" name="detener" value=" ↓ ">
+             <label for="velocidad" style="margin-left: 16px; margin:right:16px;vertical-align: top">Vel </label>
+             <input type="range" id ="vel-F4" form="vel" max="100" min="1" step="1" value="10" ></span>
+           </p>
+       </form>
+     </td>
+     <td>
+       <form action="" id="form-comando-reja">
+         <p>
+           <label for="angulo" style="margin-left: 16px; margin:right:16px;vertical-align: top">Reja 1 </label>
+           <!-- <input type="button" id="b-arrancar-R1" name="arrancar" value=" ↑ ">
+           <input type="button" id="b-detener-R1" name="detener" value=" ↓ "> -->
+           <label for="angulo" style="margin-left: 16px; margin:right:16px;vertical-align: top">Apertura </label>
+           <input type="range" id ="ang-R1" form="ang" max="100" min="0" step="1" value="10" ></span>
+         </p>
+
+         <p>
+           <label for="angulo" style="margin-left: 16px; margin:right:16px;vertical-align: top">Reja 2 </label>
+           <!-- <input type="button" id="b-arrancar-R2" name="arrancar" value=" ↑ ">
+           <input type="button" id="b-detener-R2" name="detener" value=" ↓ "> -->
+           <label for="angulo" style="margin-left: 16px; margin:right:16px;vertical-align: top">Apertura</label>
+           <input type="range" id ="ang-R2" form="ang" max="100" min="0" step="1" value="10" ></span>
+         </p>
+
+         <p>
+           <label for="angulo" style="margin-left: 16px; margin:right:16px;vertical-align: top">Reja 3 </label>
+           <!-- <input type="button" id="b-arrancar-R3" name="arrancar" value=" ↑ ">
+           <input type="button" id="b-detener-R3" name="detener" value=" ↓ "> -->
+           <label for="angulo" style="margin-left: 16px; margin:right:16px;vertical-align: top">Apertura</label>
+           <input type="range" id ="ang-R3" form="ang" max="100" min="0" step="1" value="10" ></span>
+         </p>
+       </form>
+     </td>
+     <td>
+       <form action="" id="form-comando-filtro">
+        <p>
+         <label for="angulo" style="margin-left: 16px; margin:right:16px;vertical-align: top">Filtro Primario </label>
+         <input type="button" id="b-arrancar-FP" name="arrancar" value=" ↑ ">
+         <input type="button" id="b-detener-FP" name="detener" value=" ↓ ">
+        </p><p>
+         <label for="angulo" style="margin-left: 16px; margin:right:16px;vertical-align: top">Filtro Secundario </label>
+         <input type="button" id="b-arrancar-FS" name="arrancar" value=" ↑ ">
+         <input type="button" id="b-detener-FS" name="detener" value=" ↓ ">
+       </p><p>
+         <label for="angulo" style="margin-left: 16px; margin:right:16px;vertical-align: top">Filtro Absoluto </label>
+         <input type="button" id="b-arrancar-FA" name="arrancar" value=" ↑ ">
+         <input type="button" id="b-detener-FA" name="detener" value=" ↓ ">
+       </p>
+       </form>
+
+       <form action="" id="form-comando-circuitos">
+        <p>
+         <label for="angulo" style="margin-left: 16px; margin:right:16px;vertical-align: top">Circuito de Frio </label>
+         <input type="button" id="b-arrancar-CR" name="arrancar" value=" ↑ ">
+         <input type="button" id="b-detener-CR" name="detener" value=" ↓ ">
+       </p><p>
+        <label for="angulo" style="margin-left: 16px; margin:right:16px;vertical-align: top">Circuito de Calor </label>
+         <input type="button" id="b-arrancar-CC" name="arrancar" value=" ↑ ">
+         <input type="button" id="b-detener-CC" name="detener" value=" ↓ ">
+       </p>
+       </form>
+     </td>
+     <td>
+       <form action="" id="form-comando-tuberias">
+       <p>
+         <label for="angulo" style="margin-left: 16px; margin:right:16px;vertical-align: top">Tuberia 1 </label>
+         <input type="button" id="b-arrancar-T1" name="arrancar" value=" ↑ ">
+         <input type="button" id="b-detener-T1" name="detener" value=" ↓ ">
+       </p><p>
+         <label for="angulo" style="margin-left: 16px; margin:right:16px;vertical-align: top">Tuberia 2 </label>
+         <input type="button" id="b-arrancar-T2" name="arrancar" value=" ↑ ">
+         <input type="button" id="b-detener-T2" name="detener" value=" ↓ ">
+       </p><p>
+         <label for="angulo" style="margin-left: 16px; margin:right:16px;vertical-align: top">Tuberia 3 </label>
+         <input type="button" id="b-arrancar-T3" name="arrancar" value=" ↑ ">
+         <input type="button" id="b-detener-T3" name="detener" value=" ↓ ">
+       </p>
+       </form>
+     </td>
+     </table>
+    </article>
+  </body>
+</html>

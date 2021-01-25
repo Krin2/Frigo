@@ -1,8 +1,8 @@
- {
-    "titulo": "Condensador 1",
-    "tag": "Q1",
-    "servicio": "",
-    "tituloEstados":[
+ { 
+    "titulo" :"Condensador 1",
+    "tag" : "Q1",
+    "servicio" : "",
+    "tituloEstados" :[
         "SERVICIO",
         "ESTADO EQUIPO",
         "NIVEL BATEA",
@@ -15,36 +15,36 @@
         "FORZADOR 4",
         "FORZADOR 5"
     ],
-    "contenidoEstados":[],    
-    "entradasDigitales":{
-        "automatico":"false",
-        "manual":"false",
-        "nivel":"false",
-        "arranque finalizado bomba 1":"false",
-        "arranque finalizado bomba 2":"false",
-        "arranque finalizado forzador 1":"false",
-        "arranque finalizado forzador 2":"false",
-        "arranque finalizado forzador 3":"false",
-        "arranque finalizado forzador 4":"false",
-        "arranque finalizado forzador 5":"false"
+    "contenidoEstados" :[],    
+    "entradasDigitales" :{
+        "automatico" :"false",
+        "manual" :"false",
+        "nivel" :"false",
+        "arranqueFinalizadoBomba1" :"false",
+        "arranqueFinalizadoBomba2" :"false",
+        "arranqueFinalizadoForzador1" :"false",
+        "arranqueFinalizadoForzador2" :"false",
+        "arranqueFinalizadoForzador3" :"false",
+        "arranqueFinalizadoForzador4" :"false",
+        "arranqueFinalizadoForzador5" :"false"
     },
-    "salidas digitales":{
-        "arranque bomba 1":"false",
-        "arranque bomba 2":"false",
-        "arranque forzador 1":"false",
-        "arranque forzador 2":"false",
-        "arranque forzador 3":"false",
-        "arranque forzador 4":"false",
-        "arranque forzador 5":"false"
+    "salidas digitales" :{
+        "arranqueBomba1" :"false",
+        "arranqueBomba2" :"false",
+        "arranqueForzador1" :"false",
+        "arranqueForzador2" :"false",
+        "arranqueForzador3" :"false",
+        "arranqueForzador4" :"false",
+        "arranqueForzador5" :"false"
     },
-    "entradasAnalogicas":{
-        "PQ1":{
-            "tag":"PIT-1001",
-            "unidades":"bar",
-            "medicion": "12.3"
+    "entradasAnalogicas" :{
+        "PQ1" :{
+            "tag" :"PIT-1001",
+            "unidades" :"bar",
+            "medicion" : "12.3"
             }   
     },
-    "salidasAnalogicas":{
+    "salidasAnalogicas" :{
 
     }
 
