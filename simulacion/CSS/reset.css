@@ -1,0 +1,13 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  /* ubicacion */
+  position: relative;
+  z-index: 0;
+  display: block;
+  /* forma */
+  background-color: rgba(0,0,0,0.9);
+}

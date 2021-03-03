@@ -1,13 +1,18 @@
-var ModuloFiltro= function(nombre,x,y){
+var ModuloFiltro= function(nombre,x,y,ancho,alto,canvas){
   this.nombre=nombre;
   this.arrancarId="b-arrancar-"+this.nombre;
   this.detenerId="b-detener-"+this.nombre;
   this.x=x;
   this.y=y;
+  this.ancho=ancho;
+  this.alto=alto;
   this.estado='rgba(200,200,200,1)';
   this.apertura=0;
   this.encendido=false;
+  this.canvas=canvas;
+  this.ctx = this.canvas.getContext('2d');
 };
+
 
 
 ModuloFiltro.prototype={
@@ -45,24 +50,24 @@ ModuloFiltro.prototype={
     window.cancelAnimationFrame(this.abrir.bind(this));
   },
   graficar: function(){
+
+    var canvas=this.canvas;
+    var ctx= this.ctx;
     ctx.strokeStyle = this.estado;
     //canvas
     canvas.style.zIndex=1;
-    canvas.style.position='absolute';
-    canvas.style.top='0px';
-    canvas.style.left='0px';
     ctx.globalCompositeOperation='source-over';
 
     ctx.fillStyle = this.estado;
     ctx.strokeStyle = 'black';
 
-    ctx.fillRect(this.x, this.y, 25, 200);
-    ctx.strokeRect(this.x, this.y, 25, 200);
+    ctx.fillRect(this.x, this.y, this.ancho, this.alto);
+    ctx.strokeRect(this.x, this.y, this.ancho, this.alto);
 
-    ctx.font = '20px Times New Roman';
+    ctx.font = '15px Times New Roman';
     ctx.fillStyle = 'rgba(255,255,255,1)';
 
-    ctx.fillText(this.nombre, this.x+2, this.y-2);
+    ctx.fillText(this.nombre, this.x+2, this.y+20);
   },
 
   abrir:function(elem){

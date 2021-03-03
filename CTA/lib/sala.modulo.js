@@ -1,4 +1,4 @@
-var ModuloSala= function(nombre,x,y,ancho, alto){
+var ModuloSala= function(nombre,x,y,ancho, alto,canvas){
   this.nombre=nombre;
   this.arrancarId="b-arrancar-"+this.nombre;
   this.detenerId="b-detener-"+this.nombre;
@@ -7,7 +7,10 @@ var ModuloSala= function(nombre,x,y,ancho, alto){
   this.ancho=ancho;
   this.alto=alto;
   this.estado='rgba(100,100,100,1)';
+  this.canvas=canvas;
+  this.ctx = this.canvas.getContext('2d');
 };
+
 
 
 ModuloSala.prototype={
@@ -16,11 +19,10 @@ ModuloSala.prototype={
   },
 
   graficar: function(){
+    var canvas=this.canvas;
+    var ctx= this.ctx;
     //canvas
     canvas.style.zIndex=1;
-    canvas.style.position='absolute';
-    canvas.style.top='0px';
-    canvas.style.left='0px';
     ctx.globalCompositeOperation='source-over';
 
     ctx.fillStyle = this.estado;

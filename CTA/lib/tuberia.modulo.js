@@ -1,10 +1,12 @@
-var ModuloTuberia= function(nombre,x,y){
+var ModuloTuberia= function(nombre,x,y,canvas){
   this.nombre=nombre;
   this.arrancarId="b-arrancar-"+this.nombre;
   this.detenerId="b-detener-"+this.nombre;
   this.x=x;
   this.y=y;
   this.estado='rgba(200,200,200,1)';
+  this.canvas=canvas;
+  this.ctx = this.canvas.getContext('2d');
 };
 
 
@@ -43,11 +45,11 @@ ModuloTuberia.prototype={
     window.cancelAnimationFrame(this.abrir.bind(this));
   },
   graficar: function(){
+    
+    var canvas=this.canvas;
+    var ctx= this.ctx;
       //canvas
     canvas.style.zIndex=1;
-    canvas.style.position='absolute';
-    canvas.style.top='0px';
-    canvas.style.left='0px';
     ctx.globalCompositeOperation='source-over';
 
 
@@ -109,6 +111,11 @@ ModuloTuberia.prototype={
         //entrada de aire externo
         ctx.fillRect(60, 120, 30, 40);
         ctx.strokeRect(60, 120, 30, 40);
+      }
+      case 'T4':{
+        //entrada de aire externo
+        ctx.fillRect(400, 180, 100, 40);
+        ctx.strokeRect(400, 180, 100, 40);
       }
     }
   },

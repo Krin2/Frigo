@@ -1,4 +1,4 @@
-﻿var ModuloReja= function(nombre,x,y, direccion){
+﻿var ModuloReja= function(nombre,x,y, direccion,canvas){
   this.nombre=nombre;
   this.arrancarId="b-arrancar-"+this.nombre;
   this.detenerId="b-detener-"+this.nombre;
@@ -9,10 +9,9 @@
   this.giro=false;
   this.estado='rgba(200,200,200,1)';
   this.direccion=direccion;
+  this.canvas=canvas;
+  this.ctx = this.canvas.getContext('2d');
 };
-
-var canvas = document.getElementById('canvas');
-var ctx = canvas.getContext('2d');
 
 ModuloReja.prototype={
   iniciar:function(){
@@ -32,7 +31,7 @@ ModuloReja.prototype={
     this.setApertura(parseFloat(this.bApertura.value));
     this.graficar();
     ctx.font = '20px Times New Roman';
-    ctx.fillStyle = 'rgba(0,0,0,1)';
+    ctx.fillStyle = 'rgba(255,255,255,1)';
 
     if (this.direccion==="vertical"){
       ctx.fillText(this.nombre, this.x+2, this.y+30);
@@ -71,12 +70,10 @@ ModuloReja.prototype={
 
 
   graficar: function(){
-
+    var canvas=this.canvas;
+    var ctx= this.ctx;
     //canvas
     canvas.style.zIndex=1;
-    canvas.style.position='absolute';
-    canvas.style.top='0px';
-    canvas.style.left='0px';
     ctx.globalCompositeOperation='sourse-over';
 
     ctx.fillStyle = 'rgba(200,200,200,1)';

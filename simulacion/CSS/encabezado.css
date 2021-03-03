@@ -1,0 +1,22 @@
+.encabezado{
+  /* ubicacion */
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 60px;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+
+  /* forma */
+  justify-content: space-between;
+  background-color: rgba(0,0,0,1);
+
+  /* letra */
+  color: rgba(37,228,208,1);
+}
+.p-titulo{
+  /* letra */
+  text-align: center;
+  font-size: 2em;
+}

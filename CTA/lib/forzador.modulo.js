@@ -1,4 +1,4 @@
-var ModuloForzador= function(nombre,x,y){
+var ModuloForzador= function(nombre,x,y,canvas){
   this.nombre=nombre;
   this.arrancarId="b-arrancar-"+this.nombre;
   this.detenerId="b-detener-"+this.nombre;
@@ -14,10 +14,11 @@ var ModuloForzador= function(nombre,x,y){
     dy:0,
     girar:false
   };
+  this.canvas=canvas;
+  this.ctx = this.canvas.getContext('2d');
 };
+  
 
-var canvas = document.getElementById('canvas');
-var ctx = canvas.getContext('2d');
 
 ModuloForzador.prototype={
   iniciar: function(){
@@ -73,13 +74,11 @@ ModuloForzador.prototype={
   },
 
   graficar: function(){
-
+    var canvas=this.canvas;
+    var ctx=this.ctx;
     //canvas
     ctx.globalCompositeOperation='source-over';
     canvas.style.zIndex=1;
-    canvas.style.position='absolute';
-    canvas.style.top='0px';
-    canvas.style.left='0px';
 
     ctx.fillStyle = this.estado;
     ctx.strokeStyle = 'rgba(0,0,0,0.8)';
