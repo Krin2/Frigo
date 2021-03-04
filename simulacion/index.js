@@ -35,6 +35,7 @@ $(function () {
    }else {
      this.moduloCta300.iniciar();
    }
+   canvas.style.height='600px';
    canvas.style.visibility='visible';
  }
  crearCTA100 =function(){
@@ -49,6 +50,7 @@ $(function () {
    }else {
      this.moduloCta100.iniciar();
    }
+   canvas.style.height='600px';
    canvas.style.visibility='visible';
  }
  crearUTA =function(){
@@ -64,6 +66,7 @@ $(function () {
    }else {
      this.moduloUta.iniciar();
    }
+   canvas.style.height='600px';
    canvas.style.visibility='visible';
  }
  crearSimulacion =function(){
@@ -75,12 +78,14 @@ $(function () {
 
 borrar=function(){
   var canvas=document.getElementById('canvas1');
-  canvas.style.visibility='none';
+  canvas.style.visibility='hidden';
+  canvas.style.height='0px';
   var canvas=document.getElementById('canvas2');
-  canvas.style.visibility='none';
+  canvas.style.visibility='hidden';
+  canvas.style.height='0px';
   var canvas=document.getElementById('canvas3');
-  canvas.style.visibility='none';
-  
+  canvas.style.visibility='hidden';
+  canvas.style.height='0px';
   // var canvas=document.getElementById('canvas1');
   // var ctx=canvas.getContext("2d");
   // ctx.fillStyle = 'rgba(25,25,25,1)';

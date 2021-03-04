@@ -1,4 +1,4 @@
-var Instrumento=function(nombre,x,y,tipo,unidad,canvas){
+var Instrumento=function(nombre,x,y,tipo,unidad){
   this.nombre=nombre;
   this.x=x;
   this.y=y;
@@ -8,11 +8,10 @@ var Instrumento=function(nombre,x,y,tipo,unidad,canvas){
   this.tipo=tipo
   this.rangoMin=0;
   this.rangoMax=100;
-  this.canvas=canvas;
-  this.ctx = this.canvas.getContext('2d');
 };
 
-
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
 
 Instrumento.prototype={
   iniciar: function(){
@@ -90,35 +89,36 @@ Instrumento.prototype={
   },
 
   graficar: function(){
+
     //canvas
-    this.ctx.globalCompositeOperation='source-over';
-    this.canvas.style.zIndex=2;
+    ctx.globalCompositeOperation='source-over';
+    canvas.style.zIndex=2;
 
-    this.ctx.fillStyle = 'rgba(100,100,200,1)';
-    this.ctx.strokeStyle = 'rgba(0,0,0,0.8)';
+    ctx.fillStyle = 'rgba(100,100,200,1)';
+    ctx.strokeStyle = 'rgba(0,0,0,0.8)';
 
-    this.ctx.lineWidth=1;
+    ctx.lineWidth=1;
 
-    this.ctx.beginPath();
-    this.ctx.arc(this.x, this.y, 10, 0, Math.PI * 2,0);
-    this.ctx.fill();
-    this.ctx.stroke();
-    this.ctx.closePath();
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, 10, 0, Math.PI * 2,0);
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath();
 
-    this.ctx.fillStyle = 'rgba(255,255,255,1)';
-    this.ctx.fillRect(this.x-5, this.y-5,10,5);
-    this.ctx.strokeRect(this.x-5, this.y-5,10,5);
-    this.ctx.closePath();
+    ctx.fillStyle = 'rgba(255,255,255,1)';
+    ctx.fillRect(this.x-5, this.y-5,10,5);
+    ctx.strokeRect(this.x-5, this.y-5,10,5);
+    ctx.closePath();
 
-    this.ctx.moveTo(this.x,this.y+10);
-    this.ctx.lineTo(this.x,this.y+20);
-    this.ctx.stroke();
-    this.ctx.closePath();
+    ctx.moveTo(this.x,this.y+10);
+    ctx.lineTo(this.x,this.y+20);
+    ctx.stroke();
+    ctx.closePath();
 
-    this.ctx.font = '10px Times New Roman';
-    this.ctx.fillStyle = 'rgba(255,255,255,1)';
+    ctx.font = '10px Times New Roman';
+    ctx.fillStyle = 'rgba(255,255,255,1)';
 
-    this.ctx.fillText(this.nombre, this.x-10, this.y-12);
+    ctx.fillText(this.nombre, this.x-10, this.y-12);
   },
   formato: function(){
       this.$instrumento.style.backgroundColor= 'rgba(100,100,100,1)';

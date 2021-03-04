@@ -1,32 +1,26 @@
-var ModuloFiltro= function(nombre,x,y,ancho,alto,canvas){
+var ModuloCircuito= function(nombre,x,y,tipo){
   this.nombre=nombre;
   this.arrancarId="b-arrancar-"+this.nombre;
   this.detenerId="b-detener-"+this.nombre;
+  this.tipo=tipo;
   this.x=x;
   this.y=y;
-  this.ancho=ancho;
-  this.alto=alto;
   this.estado='rgba(200,200,200,1)';
-  this.apertura=0;
-  this.encendido=false;
-  this.canvas=canvas;
-  this.ctx = this.canvas.getContext('2d');
 };
 
 
-
-ModuloFiltro.prototype={
+ModuloCircuito.prototype={
   iniciar:function(){
-    // this.bArrancar= document.getElementById(this.arrancarId);
-    // this.bDetener= document.getElementById(this.detenerId);
+    this.bArrancar= document.getElementById(this.arrancarId);
+    this.bDetener= document.getElementById(this.detenerId);
 
-    // this.bArrancar.style.color='rgba(118,118,118,1)';
-    // this.bArrancar.style.background='rgba(239,239,239,1)';
-    // this.bDetener.style.color='rgba(0,200,50,1)';
-    // this.bDetener.style.background='rgba(102,142,153,1)';
+    this.bArrancar.style.color='rgba(118,118,118,1)';
+    this.bArrancar.style.background='rgba(239,239,239,1)';
+    this.bDetener.style.color='rgba(0,200,50,1)';
+    this.bDetener.style.background='rgba(102,142,153,1)';
 
-    // this.bArrancar.onclick=this.arrancar.bind(this);
-    // this.bDetener.onclick=this.detener.bind(this);
+    this.bArrancar.onclick=this.arrancar.bind(this);
+    this.bDetener.onclick=this.detener.bind(this);
 
     this.graficar();
   },
@@ -50,22 +44,23 @@ ModuloFiltro.prototype={
     window.cancelAnimationFrame(this.abrir.bind(this));
   },
   graficar: function(){
-
-    this.ctx.strokeStyle = this.estado;
+    ctx.strokeStyle = this.estado;
     //canvas
-    this.canvas.style.zIndex=1;
-    this.ctx.globalCompositeOperation='source-over';
+    canvas.style.zIndex=1;
+    ctx.globalCompositeOperation='source-over';
 
-    this.ctx.fillStyle = this.estado;
-    this.ctx.strokeStyle = 'black';
+    ctx.beginPath();
+    ctx.moveTo(this.x,this.y);
+    ctx.lineTo(this.x,this.y+220);
+    ctx.lineTo(this.x+10,this.y+220);
+    ctx.lineTo(this.x+10,this.y+20);
+    ctx.stroke();
+    ctx.closePath();
 
-    this.ctx.fillRect(this.x, this.y, this.ancho, this.alto);
-    this.ctx.strokeRect(this.x, this.y, this.ancho, this.alto);
+    ctx.font = '20px Times New Roman';
+    ctx.fillStyle = 'rgba(255,255,255,1)';
 
-    this.ctx.font = '15px Times New Roman';
-    this.ctx.fillStyle = 'rgba(255,255,255,1)';
-
-    this.ctx.fillText(this.nombre, this.x+2, this.y+20);
+    ctx.fillText(this.nombre, this.x-10, this.y-2);
   },
 
   abrir:function(elem){
@@ -76,22 +71,11 @@ ModuloFiltro.prototype={
         this.alfa=0;
       }
     }
-    this.ctx.strokeStyle = this.estado;
+    ctx.strokeStyle = this.estado;
     this.graficar();
     window.requestAnimationFrame(this.abrir.bind(this));
   },
-  getX:function(){
-    return this.x;
-  },
-  getY:function(){
-    return this.y;
-  },
-  getNombre:function(){
-    return this.nombre;
-  },
-  getEstado:function(){
-    return this.estado;
-  },
+
   setEstado:function(estado){
     switch (estado){
       case 'on':{this.setOn(this);break;}
@@ -101,7 +85,11 @@ ModuloFiltro.prototype={
     }
   },
   setOn:function(f){
-    f.estado='rgba(255,128,25,1)';
+    if(f.tipo==='frio'){
+      f.estado='rgba(0,50,200,1)';
+    }else{
+      f.estado='rgba(200,50,0,1)';
+    }
     f.encendido=true;
   },
   setOff:function(f){
@@ -115,4 +103,16 @@ ModuloFiltro.prototype={
     f.estado='rgba(255,0,0,1)';
   },
 
+  getX:function(){
+    return this.x;
+  },
+  getY:function(){
+    return this.y;
+  },
+  getNombre:function(){
+    return this.nombre;
+  },
+  getEstado:function(){
+    return this.estado;
+  },
 };

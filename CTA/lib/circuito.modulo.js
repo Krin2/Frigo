@@ -13,16 +13,16 @@ var ModuloCircuito= function(nombre,x,y,tipo,canvas){
 
 ModuloCircuito.prototype={
   iniciar:function(){
-    this.bArrancar= document.getElementById(this.arrancarId);
-    this.bDetener= document.getElementById(this.detenerId);
+    // this.bArrancar= document.getElementById(this.arrancarId);
+    // this.bDetener= document.getElementById(this.detenerId);
 
-    this.bArrancar.style.color='rgba(118,118,118,1)';
-    this.bArrancar.style.background='rgba(239,239,239,1)';
-    this.bDetener.style.color='rgba(0,200,50,1)';
-    this.bDetener.style.background='rgba(102,142,153,1)';
+    // this.bArrancar.style.color='rgba(118,118,118,1)';
+    // this.bArrancar.style.background='rgba(239,239,239,1)';
+    // this.bDetener.style.color='rgba(0,200,50,1)';
+    // this.bDetener.style.background='rgba(102,142,153,1)';
 
-    this.bArrancar.onclick=this.arrancar.bind(this);
-    this.bDetener.onclick=this.detener.bind(this);
+    // this.bArrancar.onclick=this.arrancar.bind(this);
+    // this.bDetener.onclick=this.detener.bind(this);
 
     this.graficar();
   },
@@ -46,25 +46,24 @@ ModuloCircuito.prototype={
     window.cancelAnimationFrame(this.abrir.bind(this));
   },
   graficar: function(){
-    var canvas=this.canvas;
-    var ctx=this.ctx;
-    ctx.strokeStyle = this.estado;
+    
+    this.ctx.strokeStyle = this.estado;
     //canvas
-    canvas.style.zIndex=1;
-    ctx.globalCompositeOperation='source-over';
+    this.canvas.style.zIndex=1;
+    this.ctx.globalCompositeOperation='source-over';
 
-    ctx.beginPath();
-    ctx.moveTo(this.x,this.y);
-    ctx.lineTo(this.x,this.y+220);
-    ctx.lineTo(this.x+10,this.y+220);
-    ctx.lineTo(this.x+10,this.y+20);
-    ctx.stroke();
-    ctx.closePath();
+    this.ctx.beginPath();
+    this.ctx.moveTo(this.x,this.y);
+    this.ctx.lineTo(this.x,this.y+220);
+    this.ctx.lineTo(this.x+10,this.y+220);
+    this.ctx.lineTo(this.x+10,this.y+20);
+    this.ctx.stroke();
+    this.ctx.closePath();
 
-    ctx.font = '20px Times New Roman';
-    ctx.fillStyle = 'rgba(255,255,255,1)';
+    this.ctx.font = '20px Times New Roman';
+    this.ctx.fillStyle = 'rgba(255,255,255,1)';
 
-    ctx.fillText(this.nombre, this.x-10, this.y-2);
+    this.ctx.fillText(this.nombre, this.x-10, this.y-2);
   },
 
   abrir:function(elem){
@@ -75,7 +74,7 @@ ModuloCircuito.prototype={
         this.alfa=0;
       }
     }
-    ctx.strokeStyle = this.estado;
+    this.ctx.strokeStyle = this.estado;
     this.graficar();
     window.requestAnimationFrame(this.abrir.bind(this));
   },

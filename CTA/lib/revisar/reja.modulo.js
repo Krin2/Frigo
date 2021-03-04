@@ -1,4 +1,4 @@
-﻿var ModuloReja= function(nombre,x,y, direccion,canvas){
+﻿var ModuloReja= function(nombre,x,y, direccion){
   this.nombre=nombre;
   this.arrancarId="b-arrancar-"+this.nombre;
   this.detenerId="b-detener-"+this.nombre;
@@ -9,35 +9,35 @@
   this.giro=false;
   this.estado='rgba(200,200,200,1)';
   this.direccion=direccion;
-  this.canvas=canvas;
-  this.ctx = this.canvas.getContext('2d');
 };
+
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
 
 ModuloReja.prototype={
   iniciar:function(){
-    // // this.bArrancar= document.getElementById(this.arrancarId);
-    // // this.bDetener= document.getElementById(this.detenerId);
-    // this.bApertura = document.getElementById("ang-"+this.nombre);
+    // this.bArrancar= document.getElementById(this.arrancarId);
+    // this.bDetener= document.getElementById(this.detenerId);
+    this.bApertura = document.getElementById("ang-"+this.nombre);
 
-    // // this.bArrancar.style.color='rgba(118,118,118,1)';
-    // // this.bArrancar.style.background='rgba(239,239,239,1)';
-    // // this.bDetener.style.color='rgba(0,200,50,1)';
-    // // this.bDetener.style.background='rgba(102,142,153,1)';
+    // this.bArrancar.style.color='rgba(118,118,118,1)';
+    // this.bArrancar.style.background='rgba(239,239,239,1)';
+    // this.bDetener.style.color='rgba(0,200,50,1)';
+    // this.bDetener.style.background='rgba(102,142,153,1)';
 
-    // // this.bArrancar.onclick=this.arrancar.bind(this);
-    // // this.bDetener.onclick=this.detener.bind(this);
-    // this.bApertura.onchange=this.cambiarApertura.bind(this);
+    // this.bArrancar.onclick=this.arrancar.bind(this);
+    // this.bDetener.onclick=this.detener.bind(this);
+    this.bApertura.onchange=this.cambiarApertura.bind(this);
 
-    // this.setApertura(parseFloat(this.bApertura.value));
+    this.setApertura(parseFloat(this.bApertura.value));
     this.graficar();
-
-    this.ctx.font = '20px Times New Roman';
-    this.ctx.fillStyle = 'rgba(255,255,255,1)';
+    ctx.font = '20px Times New Roman';
+    ctx.fillStyle = 'rgba(255,255,255,1)';
 
     if (this.direccion==="vertical"){
-      this.ctx.fillText(this.nombre, this.x+2, this.y+30);
+      ctx.fillText(this.nombre, this.x+2, this.y+30);
     }else{
-      this.ctx.fillText(this.nombre, this.x-2, this.y+30);
+      ctx.fillText(this.nombre, this.x-2, this.y+30);
     }
   },
 
@@ -73,37 +73,37 @@ ModuloReja.prototype={
   graficar: function(){
 
     //canvas
-    this.canvas.style.zIndex=1;
-    this.ctx.globalCompositeOperation='sourse-over';
+    canvas.style.zIndex=1;
+    ctx.globalCompositeOperation='sourse-over';
 
-    this.ctx.fillStyle = 'rgba(200,200,200,1)';
-    this.ctx.strokeStyle = 'rgba(0,0,0,1)';
-    this.ctx.beginPath();
+    ctx.fillStyle = 'rgba(200,200,200,1)';
+    ctx.strokeStyle = 'rgba(0,0,0,1)';
+    ctx.beginPath();
     if (this.direccion==="vertical"){
-      this.ctx.fillRect(this.x,this.y,-10,40);
-      this.ctx.strokeRect(this.x,this.y,-10,40);
+      ctx.fillRect(this.x,this.y,-10,40);
+      ctx.strokeRect(this.x,this.y,-10,40);
     }else{
-      this.ctx.fillRect(this.x,this.y,40,10);
-      this.ctx.strokeRect(this.x,this.y,40,10);
+      ctx.fillRect(this.x,this.y,40,10);
+      ctx.strokeRect(this.x,this.y,40,10);
     }
-    // this.ctx.strokeStyle = this.estado;
-    this.ctx.moveTo(this.x,this.y);
+    // ctx.strokeStyle = this.estado;
+    ctx.moveTo(this.x,this.y);
     this.alfa=this.apertura*9/10
     let alfa=this.alfa*Math.PI/180;
     if (this.direccion==="vertical"){
       for (var i=1;i<5;i++){
-        this.ctx.lineTo(this.x-10*Math.sin(alfa),this.y+10*(i+Math.cos(alfa+Math.PI/2)));
-        this.ctx.moveTo(this.x,this.y+10*i);
+        ctx.lineTo(this.x-10*Math.sin(alfa),this.y+10*(i+Math.cos(alfa+Math.PI/2)));
+        ctx.moveTo(this.x,this.y+10*i);
       }
     }else{
       for (var i=1;i<5;i++){
-        this.ctx.lineTo(this.x+10*(i+Math.cos(alfa+Math.PI/2)),this.y+10*Math.sin(alfa));
-        this.ctx.moveTo(this.x+10*i,this.y);
+        ctx.lineTo(this.x+10*(i+Math.cos(alfa+Math.PI/2)),this.y+10*Math.sin(alfa));
+        ctx.moveTo(this.x+10*i,this.y);
       }
     }
 
-    this.ctx.stroke();
-    this.ctx.closePath();
+    ctx.stroke();
+    ctx.closePath();
   },
 
   girar:function(elem){
@@ -114,7 +114,7 @@ ModuloReja.prototype={
         this.alfa=0;
       }
     }
-    this.ctx.strokeStyle = this.estado;
+    ctx.strokeStyle = this.estado;
     this.graficar();
     window.requestAnimationFrame(this.girar.bind(this));
   },

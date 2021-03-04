@@ -1,21 +1,14 @@
-var ModuloFiltro= function(nombre,x,y,ancho,alto,canvas){
+var ModuloTuberia= function(nombre,x,y){
   this.nombre=nombre;
   this.arrancarId="b-arrancar-"+this.nombre;
   this.detenerId="b-detener-"+this.nombre;
   this.x=x;
   this.y=y;
-  this.ancho=ancho;
-  this.alto=alto;
   this.estado='rgba(200,200,200,1)';
-  this.apertura=0;
-  this.encendido=false;
-  this.canvas=canvas;
-  this.ctx = this.canvas.getContext('2d');
 };
 
 
-
-ModuloFiltro.prototype={
+ModuloTuberia.prototype={
   iniciar:function(){
     // this.bArrancar= document.getElementById(this.arrancarId);
     // this.bDetener= document.getElementById(this.detenerId);
@@ -50,22 +43,76 @@ ModuloFiltro.prototype={
     window.cancelAnimationFrame(this.abrir.bind(this));
   },
   graficar: function(){
+      //canvas
+    canvas.style.zIndex=1;
+    ctx.globalCompositeOperation='source-over';
 
-    this.ctx.strokeStyle = this.estado;
-    //canvas
-    this.canvas.style.zIndex=1;
-    this.ctx.globalCompositeOperation='source-over';
 
-    this.ctx.fillStyle = this.estado;
-    this.ctx.strokeStyle = 'black';
+    ctx.fillStyle = this.estado;
+    ctx.strokeStyle = 'rgba(20, 20, 20, 1)';
 
-    this.ctx.fillRect(this.x, this.y, this.ancho, this.alto);
-    this.ctx.strokeRect(this.x, this.y, this.ancho, this.alto);
+    switch(this.nombre){
+      case 'T1':{
+          //Salida CTA
+        ctx.beginPath();
+        ctx.moveTo(650, 180);
+        ctx.lineTo(730, 180);
+        ctx.lineTo(730, 370);
+        ctx.lineTo(595, 370);
+        ctx.lineTo(595, 400);
 
-    this.ctx.font = '15px Times New Roman';
-    this.ctx.fillStyle = 'rgba(255,255,255,1)';
+        ctx.lineTo(555, 400);
+        ctx.lineTo(555, 370);
+        ctx.lineTo(395, 370);
+        ctx.lineTo(395, 400);
 
-    this.ctx.fillText(this.nombre, this.x+2, this.y+20);
+        ctx.lineTo(355, 400);
+        ctx.lineTo(355, 370);
+        ctx.lineTo(195, 370);
+        ctx.lineTo(195, 400);
+
+        ctx.lineTo(155, 400);
+        ctx.lineTo(155, 330);
+        ctx.lineTo(690, 330);
+        ctx.lineTo(690, 220);
+        ctx.lineTo(650, 220);
+        ctx.lineTo(650, 180);
+
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+        break;
+      }
+      case 'T2':{
+        //entrada CTA
+        ctx.beginPath();
+        ctx.moveTo(395, 500);
+        ctx.lineTo(395, 580);
+        ctx.lineTo(20, 580);
+        ctx.lineTo(20, 240);
+        ctx.lineTo(100, 240);
+        ctx.lineTo(100, 280);
+        ctx.lineTo(60, 280);
+        ctx.lineTo(60, 540);
+        ctx.lineTo(355, 540);
+        ctx.lineTo(355, 500);
+        ctx.lineTo(395, 500);
+
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+      }
+      case 'T3':{
+        //entrada de aire externo
+        ctx.fillRect(60, 120, 30, 40);
+        ctx.strokeRect(60, 120, 30, 40);
+      }
+      case 'T4':{
+        //entrada de aire externo
+        ctx.fillRect(400, 180, 100, 40);
+        ctx.strokeRect(400, 180, 100, 40);
+      }
+    }
   },
 
   abrir:function(elem){
@@ -76,9 +123,32 @@ ModuloFiltro.prototype={
         this.alfa=0;
       }
     }
-    this.ctx.strokeStyle = this.estado;
+    ctx.strokeStyle = this.estado;
     this.graficar();
     window.requestAnimationFrame(this.abrir.bind(this));
+  },
+
+  setEstado:function(estado){
+    switch (estado){
+      case 'on':{this.setOn(this);break;}
+      case 'off':{this.setOff(this); break;}
+      case 'falla':{this.setFalla(this); break;}
+      default:{this.setDefault(this)};
+    }
+  },
+  setOn:function(f){
+    f.estado='rgba(130,237,231,0.5)';
+    f.encendido=true;
+  },
+  setOff:function(f){
+    f.estado='rgba(200,200,200,1)';
+    f.encendido=false;
+  },
+  setDefault:function(f){
+    f.estado='rgba(255,128,64,1)';
+  },
+  setFalla:function(f){
+    f.estado='rgba(255,0,0,1)';
   },
   getX:function(){
     return this.x;
@@ -92,27 +162,4 @@ ModuloFiltro.prototype={
   getEstado:function(){
     return this.estado;
   },
-  setEstado:function(estado){
-    switch (estado){
-      case 'on':{this.setOn(this);break;}
-      case 'off':{this.setOff(this); break;}
-      case 'falla':{this.setFalla(this); break;}
-      default:{this.setDefault(this)};
-    }
-  },
-  setOn:function(f){
-    f.estado='rgba(255,128,25,1)';
-    f.encendido=true;
-  },
-  setOff:function(f){
-    f.estado='rgba(200,200,200,1)';
-    f.encendido=false;
-  },
-  setDefault:function(f){
-    f.estado='rgba(255,128,64,1)';
-  },
-  setFalla:function(f){
-    f.estado='rgba(255,0,0,1)';
-  },
-
 };

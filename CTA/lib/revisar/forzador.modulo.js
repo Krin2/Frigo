@@ -1,4 +1,4 @@
-var ModuloForzador= function(nombre,x,y,canvas){
+﻿var ModuloForzador= function(nombre,x,y,canvas){
   this.nombre=nombre;
   this.arrancarId="b-arrancar-"+this.nombre;
   this.detenerId="b-detener-"+this.nombre;
@@ -6,6 +6,8 @@ var ModuloForzador= function(nombre,x,y,canvas){
   this.y=y;
   this.estado='rgba(200,200,200,1)';
   this.velocidad=0;
+  this.canvas=canvas;
+  this.ctx = this.canvas.getContext('2d');
   this.elice={
     xi:this.x,
     yi:this.y,
@@ -14,27 +16,14 @@ var ModuloForzador= function(nombre,x,y,canvas){
     dy:0,
     girar:false
   };
-  this.canvas=canvas;
-  this.ctx = this.canvas.getContext('2d');
 };
-  
+
+
 
 
 ModuloForzador.prototype={
   iniciar: function(){
     this.crearComando();
-    // this.bArrancar= document.getElementById(this.arrancarId);
-    // this.bDetener= document.getElementById(this.detenerId);
-    // this.bVelocidad = document.getElementById("vel-"+this.nombre);
-
-    // this.bArrancar.style.color='rgba(118,118,118,1)';
-    // this.bArrancar.style.background='rgba(239,239,239,1)';
-    // this.bDetener.style.color='rgba(0,200,50,1)';
-    // this.bDetener.style.background='rgba(102,142,153,1)';
-
-    // this.bArrancar.onclick=this.arrancar.bind(this);
-    // this.bDetener.onclick=this.detener.bind(this);
-    // this.bVelocidad.onchange=this.cambiarVelocidad.bind(this);
 
     this.setVelocidad(parseFloat(this.bVelocidad.value));
     this.graficar();
@@ -105,18 +94,24 @@ ModuloForzador.prototype={
   arrancar:function(e){
     this.setEstado('on');
     this.graficar();
+
+    this.bArrancar.disabled=true;
     this.bArrancar.style.color='rgba(0,200,50,1)';
     this.bArrancar.style.background='rgba(0,250,50,1)';
+
+    this.bDetener.disabled=false;
     this.bDetener.style.color='rgba(118,118,118,1)';
     this.bDetener.style.background='rgba(239,239,239,1)';
-    this.bDetener.style.acc='rgba(239,239,239,1)';
+
     window.requestAnimationFrame(this.girar.bind(this));
   },
   detener:function(e){
     this.setEstado('off');
     this.graficar();
+    this.bArrancar.disabled=false;
     this.bArrancar.style.color='rgba(118,118,118,1)';
     this.bArrancar.style.background='rgba(239,239,239,1)';
+    this.bDetener.disabled=true;
     this.bDetener.style.color='rgba(0,200,50,1)';
     this.bDetener.style.background='rgba(102,142,153,1)';
     window.cancelAnimationFrame(this.girar.bind(this));
@@ -139,8 +134,9 @@ ModuloForzador.prototype={
   },
 
   graficar: function(){
-    
+
     //canvas
+
     this.ctx.globalCompositeOperation='source-over';
     this.canvas.style.zIndex=1;
 

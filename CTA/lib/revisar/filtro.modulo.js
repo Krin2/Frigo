@@ -1,4 +1,4 @@
-var ModuloFiltro= function(nombre,x,y,ancho,alto,canvas){
+var ModuloFiltro= function(nombre,x,y,ancho,alto){
   this.nombre=nombre;
   this.arrancarId="b-arrancar-"+this.nombre;
   this.detenerId="b-detener-"+this.nombre;
@@ -9,24 +9,21 @@ var ModuloFiltro= function(nombre,x,y,ancho,alto,canvas){
   this.estado='rgba(200,200,200,1)';
   this.apertura=0;
   this.encendido=false;
-  this.canvas=canvas;
-  this.ctx = this.canvas.getContext('2d');
 };
-
 
 
 ModuloFiltro.prototype={
   iniciar:function(){
-    // this.bArrancar= document.getElementById(this.arrancarId);
-    // this.bDetener= document.getElementById(this.detenerId);
+    this.bArrancar= document.getElementById(this.arrancarId);
+    this.bDetener= document.getElementById(this.detenerId);
 
-    // this.bArrancar.style.color='rgba(118,118,118,1)';
-    // this.bArrancar.style.background='rgba(239,239,239,1)';
-    // this.bDetener.style.color='rgba(0,200,50,1)';
-    // this.bDetener.style.background='rgba(102,142,153,1)';
+    this.bArrancar.style.color='rgba(118,118,118,1)';
+    this.bArrancar.style.background='rgba(239,239,239,1)';
+    this.bDetener.style.color='rgba(0,200,50,1)';
+    this.bDetener.style.background='rgba(102,142,153,1)';
 
-    // this.bArrancar.onclick=this.arrancar.bind(this);
-    // this.bDetener.onclick=this.detener.bind(this);
+    this.bArrancar.onclick=this.arrancar.bind(this);
+    this.bDetener.onclick=this.detener.bind(this);
 
     this.graficar();
   },
@@ -50,22 +47,21 @@ ModuloFiltro.prototype={
     window.cancelAnimationFrame(this.abrir.bind(this));
   },
   graficar: function(){
-
-    this.ctx.strokeStyle = this.estado;
+    ctx.strokeStyle = this.estado;
     //canvas
-    this.canvas.style.zIndex=1;
-    this.ctx.globalCompositeOperation='source-over';
+    canvas.style.zIndex=1;
+    ctx.globalCompositeOperation='source-over';
 
-    this.ctx.fillStyle = this.estado;
-    this.ctx.strokeStyle = 'black';
+    ctx.fillStyle = this.estado;
+    ctx.strokeStyle = 'black';
 
-    this.ctx.fillRect(this.x, this.y, this.ancho, this.alto);
-    this.ctx.strokeRect(this.x, this.y, this.ancho, this.alto);
+    ctx.fillRect(this.x, this.y, this.ancho, this.alto);
+    ctx.strokeRect(this.x, this.y, this.ancho, this.alto);
 
-    this.ctx.font = '15px Times New Roman';
-    this.ctx.fillStyle = 'rgba(255,255,255,1)';
+    ctx.font = '15px Times New Roman';
+    ctx.fillStyle = 'rgba(255,255,255,1)';
 
-    this.ctx.fillText(this.nombre, this.x+2, this.y+20);
+    ctx.fillText(this.nombre, this.x+2, this.y+20);
   },
 
   abrir:function(elem){
@@ -76,7 +72,7 @@ ModuloFiltro.prototype={
         this.alfa=0;
       }
     }
-    this.ctx.strokeStyle = this.estado;
+    ctx.strokeStyle = this.estado;
     this.graficar();
     window.requestAnimationFrame(this.abrir.bind(this));
   },
