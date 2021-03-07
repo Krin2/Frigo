@@ -15,20 +15,8 @@
 
 ModuloReja.prototype={
   iniciar:function(){
-    // // this.bArrancar= document.getElementById(this.arrancarId);
-    // // this.bDetener= document.getElementById(this.detenerId);
-    // this.bApertura = document.getElementById("ang-"+this.nombre);
-
-    // // this.bArrancar.style.color='rgba(118,118,118,1)';
-    // // this.bArrancar.style.background='rgba(239,239,239,1)';
-    // // this.bDetener.style.color='rgba(0,200,50,1)';
-    // // this.bDetener.style.background='rgba(102,142,153,1)';
-
-    // // this.bArrancar.onclick=this.arrancar.bind(this);
-    // // this.bDetener.onclick=this.detener.bind(this);
-    // this.bApertura.onchange=this.cambiarApertura.bind(this);
-
-    // this.setApertura(parseFloat(this.bApertura.value));
+    
+    this.crearComando();
     this.graficar();
 
     this.ctx.font = '20px Times New Roman';
@@ -41,23 +29,41 @@ ModuloReja.prototype={
     }
   },
 
-  arrancar:function(e){
-    this.setEstado('on');
-    this.graficar();
-    this.bArrancar.style.color='rgba(0,200,50,1)';
-    this.bArrancar.style.background='rgba(0,250,50,1)';
-    this.bDetener.style.color='rgba(118,118,118,1)';
-    this.bDetener.style.background='rgba(239,239,239,1)';
-    // window.requestAnimationFrame(this.girar.bind(this));
-  },
-  detener:function(e){
-    this.setEstado('off');
-    this.graficar();
-    this.bArrancar.style.color='rgba(118,118,118,1)';
-    this.bArrancar.style.background='rgba(239,239,239,1)';
-    this.bDetener.style.color='rgba(0,200,50,1)';
-    this.bDetener.style.background='rgba(102,142,153,1)';
-    // window.cancelAnimationFrame(this.girar.bind(this));
+  crearComando: function(){
+    var menuComando= document.querySelector('#id-comando');
+    var div=document.createElement('div');
+    div.className='col2';
+    div.gridArea='col2';
+
+    //Texto
+    this.label=document.createElement('label');
+    this.label.for='apertura';
+    this.label.style.marginLeft='5px';
+    this.label.style.marginRight='5px';
+    this.label.style.verticalAlign='top';
+    this.label.textContent=this.nombre;
+    this.label.style.color='rgba(50,0,255,1)';
+    this.label.style.verticalAlign='middle';
+    div.append(this.label);
+
+    //Barra de abrir
+    this.bApertura=document.createElement('input');
+    this.bApertura.type='range';
+    this.bApertura.id='ape-'+this.nombre;
+    this.bApertura.max='100';
+    this.bApertura.min='0';
+    this.bApertura.step='1';
+    this.bApertura.value='0';
+    this.bApertura.style.height='30px';
+    this.bApertura.style.width='100px';
+    this.bApertura.form='ape';
+    this.bApertura.style.color='rgba(0,200,50,1)';
+    this.bApertura.style.background='rgba(102,142,153,1)';
+    this.bApertura.style.verticalAlign='middle';
+    this.bApertura.onchange=this.cambiarApertura.bind(this);
+    div.append(this.bApertura);
+
+    menuComando.append(div);
   },
 
   cambiarApertura:function(e){
@@ -133,30 +139,6 @@ ModuloReja.prototype={
   },
   getDireccion:function(){
     return this.direccion;
-  },
-  setEstado:function(estado){
-    switch (estado){
-      case 'on':{this.setOn(this);break;}
-      case 'off':{this.setOff(this); break;}
-      case 'falla':{this.setFalla(this); break;}
-      default:{this.setDefault(this)};
-    }
-  },
-  setOn:function(f){
-    f.estado='rgba(0,255,0,1)';
-    f.giro=true;
-  },
-  setOff:function(f){
-    f.estado='rgba(200,200,200,1)';
-    f.giro=false;
-  },
-  setDefault:function(f){
-    f.estado='rgba(255,128,64,1)';
-    f.giro=false;
-  },
-  setFalla:function(f){
-    f.estado='rgba(255,0,0,1)';
-    f.giro=false;
   },
 
   setDirección:function(direccion){

@@ -23,18 +23,6 @@ var ModuloForzador= function(nombre,x,y,canvas){
 ModuloForzador.prototype={
   iniciar: function(){
     this.crearComando();
-    // this.bArrancar= document.getElementById(this.arrancarId);
-    // this.bDetener= document.getElementById(this.detenerId);
-    // this.bVelocidad = document.getElementById("vel-"+this.nombre);
-
-    // this.bArrancar.style.color='rgba(118,118,118,1)';
-    // this.bArrancar.style.background='rgba(239,239,239,1)';
-    // this.bDetener.style.color='rgba(0,200,50,1)';
-    // this.bDetener.style.background='rgba(102,142,153,1)';
-
-    // this.bArrancar.onclick=this.arrancar.bind(this);
-    // this.bDetener.onclick=this.detener.bind(this);
-    // this.bVelocidad.onchange=this.cambiarVelocidad.bind(this);
 
     this.setVelocidad(parseFloat(this.bVelocidad.value));
     this.graficar();
@@ -110,6 +98,10 @@ ModuloForzador.prototype={
     this.bDetener.style.color='rgba(118,118,118,1)';
     this.bDetener.style.background='rgba(239,239,239,1)';
     this.bDetener.style.acc='rgba(239,239,239,1)';
+    
+    this.bArrancar.disabled=true;
+    this.bDetener.disabled=false;
+    
     window.requestAnimationFrame(this.girar.bind(this));
   },
   detener:function(e){
@@ -119,6 +111,10 @@ ModuloForzador.prototype={
     this.bArrancar.style.background='rgba(239,239,239,1)';
     this.bDetener.style.color='rgba(0,200,50,1)';
     this.bDetener.style.background='rgba(102,142,153,1)';
+
+    this.bArrancar.disabled=false;
+    this.bDetener.disabled=true;
+
     window.cancelAnimationFrame(this.girar.bind(this));
   },
   cambiarVelocidad:function(e){

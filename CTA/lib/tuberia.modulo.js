@@ -12,43 +12,51 @@ var ModuloTuberia= function(nombre,x,y,canvas){
 
 ModuloTuberia.prototype={
   iniciar:function(){
-    // this.bArrancar= document.getElementById(this.arrancarId);
-    // this.bDetener= document.getElementById(this.detenerId);
-
-    // this.bArrancar.style.color='rgba(118,118,118,1)';
-    // this.bArrancar.style.background='rgba(239,239,239,1)';
-    // this.bDetener.style.color='rgba(0,200,50,1)';
-    // this.bDetener.style.background='rgba(102,142,153,1)';
-
-    // this.bArrancar.onclick=this.arrancar.bind(this);
-    // this.bDetener.onclick=this.detener.bind(this);
-
+    this.crearComando();
     this.graficar();
   },
 
-  arrancar:function(e){
-    this.setEstado('on');
-    this.graficar();
-    this.bArrancar.style.color='rgba(0,200,50,1)';
-    this.bArrancar.style.background='rgba(0,250,50,1)';
-    this.bDetener.style.color='rgba(118,118,118,1)';
-    this.bDetener.style.background='rgba(239,239,239,1)';
-    window.requestAnimationFrame(this.abrir.bind(this));
+  crearComando: function(){
+    var menuComando= document.querySelector('#id-comando');
+    var div=document.createElement('div');
+    div.className='col2';
+    div.gridArea='col2';
+
+    //Texto
+    this.label=document.createElement('label');
+    this.label.for='apertura';
+    this.label.style.marginLeft='5px';
+    this.label.style.marginRight='5px';
+    this.label.style.verticalAlign='top';
+    this.label.textContent=this.nombre;
+    this.label.style.color='rgba(50,0,255,1)';
+    this.label.style.verticalAlign='middle';
+    div.append(this.label);
+
+    //Barra de abrir
+    this.bEstado=document.createElement('input');
+    this.bEstado.type='range';
+    this.bEstado.id='ape-'+this.nombre;
+    this.bEstado.max='100';
+    this.bEstado.min='0';
+    this.bEstado.step='1';
+    this.bEstado.value='0';
+    this.bEstado.style.height='30px';
+    this.bEstado.style.width='100px';
+    this.bEstado.form='ape';
+    this.bEstado.style.color='rgba(0,200,50,1)';
+    this.bEstado.style.background='rgba(102,142,153,1)';
+    this.bEstado.style.verticalAlign='middle';
+    this.bEstado.onchange=this.cambiarEstado.bind(this);
+    div.append(this.bEstado);
+
+    menuComando.append(div);
   },
-  detener:function(e){
-    this.setEstado('off');
-    this.graficar();
-    this.bArrancar.style.color='rgba(118,118,118,1)';
-    this.bArrancar.style.background='rgba(239,239,239,1)';
-    this.bDetener.style.color='rgba(0,200,50,1)';
-    this.bDetener.style.background='rgba(102,142,153,1)';
-    window.cancelAnimationFrame(this.abrir.bind(this));
-  },
+
   graficar: function(){
       //canvas
     this.canvas.style.zIndex=1;
     this.ctx.globalCompositeOperation='source-over';
-
 
     this.ctx.fillStyle = this.estado;
     this.ctx.strokeStyle = 'rgba(20, 20, 20, 1)';
@@ -103,55 +111,42 @@ ModuloTuberia.prototype={
         this.ctx.fill();
         this.ctx.stroke();
         this.ctx.closePath();
+        break;
       }
       case 'T3':{
         //entrada de aire externo
         this.ctx.fillRect(60, 120, 30, 40);
         this.ctx.strokeRect(60, 120, 30, 40);
+        this.ctx.closePath();
+        break;
       }
       case 'T4':{
         //entrada de aire externo
         this.ctx.fillRect(400, 180, 100, 40);
         this.ctx.strokeRect(400, 180, 100, 40);
+        this.ctx.closePath();
+        break;
       }
     }
   },
 
-  abrir:function(elem){
-    if (this.giro===true){
-      if (this.alfa<=90){
-        this.alfa=this.apertura*9/10;
-      }else{
-        this.alfa=0;
-      }
-    }
-    this.ctx.strokeStyle = this.estado;
-    this.graficar();
-    window.requestAnimationFrame(this.abrir.bind(this));
+  cambiarEstado:function(e){
+    this.setEstado(parseFloat(e.target.value));
+    // window.requestAnimationFrame(this.cambio.bind(this));
   },
 
   setEstado:function(estado){
-    switch (estado){
-      case 'on':{this.setOn(this);break;}
-      case 'off':{this.setOff(this); break;}
-      case 'falla':{this.setFalla(this); break;}
-      default:{this.setDefault(this)};
-    }
+    let x=estado/100;
+    this.estado='rgba('+Math.round(200-70*x)+','+Math.round(200+x*37)+','+Math.round(200+31+x)+','+x+')';
+    this.graficar();
   },
-  setOn:function(f){
-    f.estado='rgba(130,237,231,0.5)';
-    f.encendido=true;
+
+  cambio:function(e){
+    this.ctx.strokeStyle = this.estado;
+    this.graficar();
+    // window.requestAnimationFrame(this.cambio.bind(this));
   },
-  setOff:function(f){
-    f.estado='rgba(200,200,200,1)';
-    f.encendido=false;
-  },
-  setDefault:function(f){
-    f.estado='rgba(255,128,64,1)';
-  },
-  setFalla:function(f){
-    f.estado='rgba(255,0,0,1)';
-  },
+  
   getX:function(){
     return this.x;
   },

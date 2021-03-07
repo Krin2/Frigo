@@ -8,17 +8,14 @@
   flex-flow: row;
 }
 
+#canvas{
+  z-index: 1;
+}
 .comando{
   /* ubicacion */
   left: 0px;
   top: 640px;
   justify-content: left;
-}
-
-#canvas{
-  z-index: 1;
-}
-.comando{
   /* display: flex;
   flex-direction: column;
   flex-grow: grow; */
