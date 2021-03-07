@@ -75,6 +75,14 @@ Instrumento.prototype={
     this.graficar();
   },
 
+  ocultar:function(){
+    this.$instrumento.style.visibility='hidden';
+    this.bMedicion.style.visibility='hidden';
+  },
+  ver:function(){
+    this.$instrumento.style.visibility='visible';
+    this.bMedicion.style.visibility='visible';
+  },
   cambiarMedicion:function(e){
     this.setMedicion(parseFloat(e.target.value));
   },

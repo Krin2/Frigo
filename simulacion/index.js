@@ -33,7 +33,13 @@ $(function () {
    if (this.moduloCta300!==null){
      this.moduloCta300=new this.ModeloCTA300(canvas);
    }else {
-     this.moduloCta300.iniciar();
+     this.moduloCta300.ver();
+   }
+   if(this.moduloCta100!==undefined){
+    this.moduloCta100.ocultar();
+   }
+   if(this.moduloUta!==undefined){
+    this.moduloUta.ocultar();
    }
    canvas.style.height='600px';
    canvas.style.visibility='visible';
@@ -48,7 +54,13 @@ $(function () {
    if (this.moduloCta100!==null){
      this.moduloCta100=new this.ModeloCTA100(canvas);
    }else {
-     this.moduloCta100.iniciar();
+     this.moduloCta100.ver();
+   }
+   if(this.moduloCta300!==undefined){
+    this.moduloCta300.ocultar();
+   }
+   if(this.moduloUta!==undefined){
+    this.moduloUta.ocultar();
    }
    canvas.style.height='600px';
    canvas.style.visibility='visible';
@@ -63,8 +75,15 @@ $(function () {
    if (this.moduloUta!==null){
      this.moduloUta=new this.ModeloUTA(canvas);
    }else {
-     this.moduloUta.iniciar();
+     this.moduloUta.ver();
    }
+   if(this.moduloCta300!==undefined){
+    this.moduloCta300.ocultar();
+   }
+   if(this.moduloCta100!==undefined){
+    this.moduloCta100.ocultar();
+   }
+
    canvas.style.height='600px';
    canvas.style.visibility='visible';
  }

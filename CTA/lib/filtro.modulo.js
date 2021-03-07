@@ -57,6 +57,14 @@ ModuloFiltro.prototype={
     menuComando.append(div);
   },
 
+  ocultar:function(){
+    this.bTapado.style.visibility='hidden';
+    this.label.style.visibility='hidden';
+  },
+  ver:function(){
+    this.bTapado.style.visibility='visible';
+    this.label.style.visibility='visible';
+  },
   graficar: function(){
     //canvas
     this.canvas.style.zIndex=1;
@@ -100,13 +108,6 @@ ModuloFiltro.prototype={
   setEstado:function(estado){
     let x=this.tapado/100;
     this.estado='rgba('+Math.round(200+55*x)+','+Math.round(200-x*72)+','+Math.round(200-175+x)+',1)';
-    
-    // switch (estado){
-    //   case 'on':{this.setOn(this);break;}
-    //   case 'off':{this.setOff(this); break;}
-    //   case 'falla':{this.setFalla(this); break;}
-    //   default:{this.setDefault(this)};
-    // }
   },
   setOn:function(f){
     f.estado='rgba(255,128,25,1)';

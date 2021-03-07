@@ -140,4 +140,118 @@ ModeloUTA.prototype={
     this.ue6pdf.iniciar();
     this.ue7pdf.iniciar();
   },
+  ocultar:function(){
+    this.mUi1F1.ocultar();
+    this.mUi1F2.ocultar();
+    this.mUi2F1.ocultar();
+    this.mUi2F2.ocultar();
+    this.mUi3F1.ocultar();
+    this.mUi3F2.ocultar();
+    this.mUi4F1.ocultar();
+    this.mUi4F2.ocultar();
+  
+    this.mUe1F1.ocultar();
+    this.mUe2F1.ocultar();
+    this.mUe3F1.ocultar();
+    this.mUe4F1.ocultar();
+    this.mUe5F1.ocultar();
+    this.mUe6F1.ocultar();
+    this.mUe7F1.ocultar();
+  
+    this.mRUI1.ocultar();
+    this.mRUI2.ocultar();
+    this.mRUI3.ocultar();
+    this.mRUI4.ocultar();
+  
+    this.mRUE1.ocultar();
+    this.mRUE2.ocultar();
+    this.mRUE3.ocultar();
+    this.mRUE4.ocultar();
+    this.mRUE5.ocultar();
+    this.mRUE6.ocultar();
+    this.mRUE7.ocultar();
+  
+    this.mUi1FP.ocultar();
+    this.mUi2FP.ocultar();
+    this.mUi3FP.ocultar();
+    this.mUi4FP.ocultar();
+  
+    this.mUe1FP.ocultar();
+    this.mUe2FP.ocultar();
+    this.mUe3FP.ocultar();
+    this.mUe4FP.ocultar();
+    this.mUe5FP.ocultar();
+    this.mUe6FP.ocultar();
+    this.mUe7FP.ocultar();
+  
+    this.ui1pdf.ocultar();
+    this.ui2pdf.ocultar();
+    this.ui3pdf.ocultar();
+    this.ui4pdf.ocultar();
+  
+    this.ue1pdf.ocultar();
+    this.ue2pdf.ocultar();
+    this.ue3pdf.ocultar();
+    this.ue4pdf.ocultar();
+    this.ue5pdf.ocultar();
+    this.ue6pdf.ocultar();
+    this.ue7pdf.ocultar();
+  },
+  ver:function(){
+    this.mUi1F1.ver();
+    this.mUi1F2.ver();
+    this.mUi2F1.ver();
+    this.mUi2F2.ver();
+    this.mUi3F1.ver();
+    this.mUi3F2.ver();
+    this.mUi4F1.ver();
+    this.mUi4F2.ver();
+  
+    this.mUe1F1.ver();
+    this.mUe2F1.ver();
+    this.mUe3F1.ver();
+    this.mUe4F1.ver();
+    this.mUe5F1.ver();
+    this.mUe6F1.ver();
+    this.mUe7F1.ver();
+  
+    this.mRUI1.ver();
+    this.mRUI2.ver();
+    this.mRUI3.ver();
+    this.mRUI4.ver();
+  
+    this.mRUE1.ver();
+    this.mRUE2.ver();
+    this.mRUE3.ver();
+    this.mRUE4.ver();
+    this.mRUE5.ver();
+    this.mRUE6.ver();
+    this.mRUE7.ver();
+  
+    this.mUi1FP.ver();
+    this.mUi2FP.ver();
+    this.mUi3FP.ver();
+    this.mUi4FP.ver();
+  
+    this.mUe1FP.ver();
+    this.mUe2FP.ver();
+    this.mUe3FP.ver();
+    this.mUe4FP.ver();
+    this.mUe5FP.ver();
+    this.mUe6FP.ver();
+    this.mUe7FP.ver();
+  
+    this.ui1pdf.ver();
+    this.ui2pdf.ver();
+    this.ui3pdf.ver();
+    this.ui4pdf.ver();
+  
+    this.ue1pdf.ver();
+    this.ue2pdf.ver();
+    this.ue3pdf.ver();
+    this.ue4pdf.ver();
+    this.ue5pdf.ver();
+    this.ue6pdf.ver();
+    this.ue7pdf.ver();
+  },
 }

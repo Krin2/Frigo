@@ -53,6 +53,14 @@ ModuloTuberia.prototype={
     menuComando.append(div);
   },
 
+  ocultar:function(){
+    this.bEstado.style.visibility='hidden';
+    this.label.style.visibility='hidden';
+  },
+  ver:function(){
+    this.bEstado.style.visibility='visible';
+    this.label.style.visibility='visible';
+  },
   graficar: function(){
       //canvas
     this.canvas.style.zIndex=1;

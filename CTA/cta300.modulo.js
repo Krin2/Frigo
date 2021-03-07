@@ -95,5 +95,88 @@ ModeloCTA300.prototype={
     this.hasb.iniciar();
     this.tasb.iniciar();
   },
-
+  ocultar:function(){
+    this.mTuberia1.ocultar();
+    this.mTuberia2.ocultar();
+    this.mTuberia3.ocultar();
+  
+    this.mforzador1.ocultar();
+    this.mforzador2.ocultar();
+    this.mforzador3.ocultar();
+    this.mforzador4.ocultar();
+  
+    this.mReja1.ocultar();
+    this.mReja2.ocultar();
+    this.mReja3.ocultar();
+  
+    this.mFP.ocultar();
+    this.mFS.ocultar();
+    this.mFA.ocultar();
+  
+    this.mCircFrio.ocultar();
+    this.mCircCalor.ocultar();
+  
+    this.tae.ocultar();
+    this.pdfp.ocultar();
+    this.pdfs.ocultar();
+    this.pdfa.ocultar();
+  
+    this.pas.ocultar();
+    this.tas.ocultar();
+    this.has.ocultar();
+  
+    this.pdsv.ocultar();
+    this.tasv.ocultar();
+    this.hasv.ocultar();
+  
+    this.pdse.ocultar();
+    this.hase.ocultar();
+    this.tase.ocultar();
+  
+    this.pdsb.ocultar();
+    this.hasb.ocultar();
+    this.tasb.ocultar();
+  },
+  ver:function(){
+    this.mTuberia1.ver();
+    this.mTuberia2.ver();
+    this.mTuberia3.ver();
+  
+    this.mforzador1.ver();
+    this.mforzador2.ver();
+    this.mforzador3.ver();
+    this.mforzador4.ver();
+  
+    this.mReja1.ver();
+    this.mReja2.ver();
+    this.mReja3.ver();
+  
+    this.mFP.ver();
+    this.mFS.ver();
+    this.mFA.ver();
+  
+    this.mCircFrio.ver();
+    this.mCircCalor.ver();
+  
+    this.tae.ver();
+    this.pdfp.ver();
+    this.pdfs.ver();
+    this.pdfa.ver();
+  
+    this.pas.ver();
+    this.tas.ver();
+    this.has.ver();
+  
+    this.pdsv.ver();
+    this.tasv.ver();
+    this.hasv.ver();
+  
+    this.pdse.ver();
+    this.hase.ver();
+    this.tase.ver();
+  
+    this.pdsb.ver();
+    this.hasb.ver();
+    this.tasb.ver();
+  },
 }

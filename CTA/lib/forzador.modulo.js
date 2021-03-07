@@ -18,8 +18,6 @@ var ModuloForzador= function(nombre,x,y,canvas){
   this.ctx = this.canvas.getContext('2d');
 };
   
-
-
 ModuloForzador.prototype={
   iniciar: function(){
     this.crearComando();
@@ -121,6 +119,13 @@ ModuloForzador.prototype={
     this.bArrancar.style.visibility='hidden';
     this.bDetener.style.visibility='hidden';
     this.bVelocidad.style.visibility='hidden';
+    this.label.style.visibility='hidden';
+  },
+  ver:function(){
+    this.bArrancar.style.visibility='visible';
+    this.bDetener.style.visibility='visible';
+    this.bVelocidad.style.visibility='visible';
+    this.label.style.visibility='visible';
   },
   
   cambiarVelocidad:function(e){

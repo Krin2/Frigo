@@ -56,7 +56,52 @@ ModeloCTA100.prototype={
     this.tast.iniciar();
   },
   ocultar:function(){
-
+    this.mTuberia4.ocultar();
+  
+    this.mforzador1.ocultar();
+  
+    this.mReja1.ocultar();
+  
+    this.mFP.ocultar();
+    this.mFS.ocultar();
+  
+    this.mCircFrio.ocultar();
+  
+    this.tae.ocultar();
+    this.pdfp.ocultar();
+    this.pdfs.ocultar();
+  
+    this.pas.ocultar();
+    this.tas.ocultar();
+    this.has.ocultar();
+  
+    this.pdst.ocultar();
+    this.hast.ocultar();
+    this.tast.ocultar();
   },
+  ver:function(){
+    this.mTuberia4.ver();
+  
+    this.mforzador1.ver();
+  
+    this.mReja1.ver();
+  
+    this.mFP.ver();
+    this.mFS.ver();
+  
+    this.mCircFrio.ver();
+  
+    this.tae.ver();
+    this.pdfp.ver();
+    this.pdfs.ver();
+  
+    this.pas.ver();
+    this.tas.ver();
+    this.has.ver();
+  
+    this.pdst.ver();
+    this.hast.ver();
+    this.tast.ver();
+  }
 }
 

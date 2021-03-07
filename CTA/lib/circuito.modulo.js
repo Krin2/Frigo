@@ -98,6 +98,19 @@ ModuloCircuito.prototype={
     
     window.cancelAnimationFrame(this.abrir.bind(this));
   },
+
+  ocultar:function(){
+    this.bArrancar.style.visibility='hidden';
+    this.bDetener.style.visibility='hidden';
+    this.label.style.visibility='hidden';
+  },
+
+  ver:function(){
+    this.bArrancar.style.visibility='visible';
+    this.bDetener.style.visibility='visible';
+    this.label.style.visibility='visible';
+  },
+
   graficar: function(){
     
     this.ctx.strokeStyle = this.estado;

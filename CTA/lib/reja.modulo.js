@@ -66,6 +66,14 @@ ModuloReja.prototype={
     menuComando.append(div);
   },
 
+  ocultar:function(){
+    this.bApertura.style.visibility='hidden';
+    this.label.style.visibility='hidden';
+  },
+  ver:function(){
+    this.bApertura.style.visibility='visible';
+    this.label.style.visibility='visible';
+  },
   cambiarApertura:function(e){
     this.setApertura(parseFloat(e.target.value));
     window.requestAnimationFrame(this.girar.bind(this));
