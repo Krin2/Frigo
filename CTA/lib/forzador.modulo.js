@@ -117,6 +117,12 @@ ModuloForzador.prototype={
 
     window.cancelAnimationFrame(this.girar.bind(this));
   },
+  ocultar:function(){
+    this.bArrancar.style.visibility='hidden';
+    this.bDetener.style.visibility='hidden';
+    this.bVelocidad.style.visibility='hidden';
+  },
+  
   cambiarVelocidad:function(e){
     this.setVelocidad(parseFloat(e.target.value));
   },
@@ -194,6 +200,7 @@ ModuloForzador.prototype={
       window.requestAnimationFrame(this.girar.bind(this));
     }
   },
+
 
   setOn:function(f){
     f.estado='rgba(0,255,0,1)';

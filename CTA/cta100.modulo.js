@@ -55,5 +55,8 @@ ModeloCTA100.prototype={
     this.hast.iniciar();
     this.tast.iniciar();
   },
+  ocultar:function(){
+
+  },
 }
 

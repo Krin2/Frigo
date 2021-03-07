@@ -95,4 +95,5 @@ ModeloCTA300.prototype={
     this.hasb.iniciar();
     this.tasb.iniciar();
   },
+
 }

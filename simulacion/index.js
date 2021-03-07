@@ -62,7 +62,6 @@ $(function () {
    var canvas=document.getElementById('canvas3');
    if (this.moduloUta!==null){
      this.moduloUta=new this.ModeloUTA(canvas);
-
    }else {
      this.moduloUta.iniciar();
    }
@@ -86,8 +85,14 @@ borrar=function(){
   var canvas=document.getElementById('canvas3');
   canvas.style.visibility='hidden';
   canvas.style.height='0px';
-  // var canvas=document.getElementById('canvas1');
-  // var ctx=canvas.getContext("2d");
-  // ctx.fillStyle = 'rgba(25,25,25,1)';
-  // ctx.fillRect(0, 0, 800, 600);
+
+  var $lecturas=document.querySelector('#lecturas');
+  if ($lecturas!==null){
+    $lecturas.innerHTML="";
+  }
+
+  var $comando=document.querySelector('#id-comando');
+  if ($lecturas!==null){
+    $comando.innerHTML="";
+  }
 }

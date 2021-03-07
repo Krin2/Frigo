@@ -41,7 +41,7 @@ Instrumento.prototype={
 
     this.formato();
 
-    //Vreacion de los comandos para simulacion
+    //Creacion de los comandos para simulacion
     this.elegirRango();
 
     this.bMedicion = document.createElement('input');
@@ -54,6 +54,9 @@ Instrumento.prototype={
 
     var bDiv = document.createElement("div")
     var bLabel = document.createElement('label');
+    bDiv.className='col3';
+    bDiv.gridArea='col3';
+
     bLabel.htmlFor="medida"
     bLabel.style['margin-left']= '5px';
     bLabel.style['margin']='right:5px';
@@ -71,6 +74,7 @@ Instrumento.prototype={
 
     this.graficar();
   },
+
   cambiarMedicion:function(e){
     this.setMedicion(parseFloat(e.target.value));
   },
