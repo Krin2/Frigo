@@ -18,6 +18,7 @@ body{
 .contenido{
     grid-area: contenido;
 }
+
 .menu{
     grid-area: menu;
 }
@@ -28,6 +29,7 @@ body{
   top: 620px;
   justify-content: space-around;
 }
+
 header{
   top: 0px;
   left: 0px;

@@ -67,12 +67,12 @@ ModuloReja.prototype={
   },
 
   ocultar:function(){
-    this.bApertura.style.visibility='hidden';
-    this.label.style.visibility='hidden';
+    this.bApertura.style.display='none';
+    this.label.style.display='none';
   },
   ver:function(){
-    this.bApertura.style.visibility='visible';
-    this.label.style.visibility='visible';
+    this.bApertura.style.display='inherit';
+    this.label.style.display='inherit';
   },
   cambiarApertura:function(e){
     this.setApertura(parseFloat(e.target.value));

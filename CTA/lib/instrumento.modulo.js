@@ -52,10 +52,10 @@ Instrumento.prototype={
     this.bMedicion.step="0.1";
     this.bMedicion.value='0';
 
-    var bDiv = document.createElement("div")
+    this.bDiv = document.createElement("div")
     var bLabel = document.createElement('label');
-    bDiv.className='col3';
-    bDiv.gridArea='col3';
+    this.bDiv.className='col3';
+    this.bDiv.gridArea='col3';
 
     bLabel.htmlFor="medida"
     bLabel.style['margin-left']= '5px';
@@ -64,9 +64,9 @@ Instrumento.prototype={
     bLabel.innerText=this.nombre+' ['+this.rangoMin+':'+this.rangoMax+']';
 
     $comando= document.getElementById("id-comando");
-    bDiv.append(bLabel);
-    bDiv.append(this.bMedicion);
-    $comando.append(bDiv);
+    this.bDiv.append(bLabel);
+    this.bDiv.append(this.bMedicion);
+    $comando.append(this.bDiv);
 
     //incorporacion de los eventos para cambiar la visualizacion de lps instrumentos
     this.bMedicion.onchange=this.cambiarMedicion.bind(this);
@@ -76,12 +76,12 @@ Instrumento.prototype={
   },
 
   ocultar:function(){
-    this.$instrumento.style.visibility='hidden';
-    this.bMedicion.style.visibility='hidden';
+    this.$instrumento.style.display='none';
+    this.bDiv.style.display='none';
   },
   ver:function(){
-    this.$instrumento.style.visibility='visible';
-    this.bMedicion.style.visibility='visible';
+    this.$instrumento.style.display='inherit';
+    this.bDiv.style.display='inherit';
   },
   cambiarMedicion:function(e){
     this.setMedicion(parseFloat(e.target.value));

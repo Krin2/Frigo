@@ -116,16 +116,16 @@ ModuloForzador.prototype={
     window.cancelAnimationFrame(this.girar.bind(this));
   },
   ocultar:function(){
-    this.bArrancar.style.visibility='hidden';
-    this.bDetener.style.visibility='hidden';
-    this.bVelocidad.style.visibility='hidden';
-    this.label.style.visibility='hidden';
+    this.bArrancar.style.display='none';
+    this.bDetener.style.display='none';
+    this.bVelocidad.style.display='none';
+    this.label.style.display='none';
   },
   ver:function(){
-    this.bArrancar.style.visibility='visible';
-    this.bDetener.style.visibility='visible';
-    this.bVelocidad.style.visibility='visible';
-    this.label.style.visibility='visible';
+    this.bArrancar.style.display='inherit';
+    this.bDetener.style.display='inherit';
+    this.bVelocidad.style.display='inherit';
+    this.label.style.display='inherit';
   },
   
   cambiarVelocidad:function(e){

@@ -54,12 +54,12 @@ ModuloTuberia.prototype={
   },
 
   ocultar:function(){
-    this.bEstado.style.visibility='hidden';
-    this.label.style.visibility='hidden';
+    this.bEstado.style.display='none';
+    this.label.style.display='none';
   },
   ver:function(){
-    this.bEstado.style.visibility='visible';
-    this.label.style.visibility='visible';
+    this.bEstado.style.display='inherit';
+    this.label.style.display='inherit';
   },
   graficar: function(){
       //canvas

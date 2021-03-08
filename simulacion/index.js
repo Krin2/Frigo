@@ -30,17 +30,12 @@ $(function () {
    document.querySelector('.boton4').value=false;
    borrar();
    var canvas=document.getElementById('canvas1');
-   if (this.moduloCta300!==null){
+   if (this.moduloCta300==undefined){
      this.moduloCta300=new this.ModeloCTA300(canvas);
    }else {
      this.moduloCta300.ver();
    }
-   if(this.moduloCta100!==undefined){
-    this.moduloCta100.ocultar();
-   }
-   if(this.moduloUta!==undefined){
-    this.moduloUta.ocultar();
-   }
+
    canvas.style.height='600px';
    canvas.style.visibility='visible';
  }
@@ -51,17 +46,12 @@ $(function () {
    document.querySelector('.boton4').value=false
    borrar();
    var canvas=document.getElementById('canvas2');
-   if (this.moduloCta100!==null){
+   if (this.moduloCta100==undefined){
      this.moduloCta100=new this.ModeloCTA100(canvas);
    }else {
      this.moduloCta100.ver();
    }
-   if(this.moduloCta300!==undefined){
-    this.moduloCta300.ocultar();
-   }
-   if(this.moduloUta!==undefined){
-    this.moduloUta.ocultar();
-   }
+   
    canvas.style.height='600px';
    canvas.style.visibility='visible';
  }
@@ -72,16 +62,10 @@ $(function () {
    document.querySelector('.boton4').value=false;
    borrar();
    var canvas=document.getElementById('canvas3');
-   if (this.moduloUta!==null){
+   if (this.moduloUta==undefined){
      this.moduloUta=new this.ModeloUTA(canvas);
    }else {
      this.moduloUta.ver();
-   }
-   if(this.moduloCta300!==undefined){
-    this.moduloCta300.ocultar();
-   }
-   if(this.moduloCta100!==undefined){
-    this.moduloCta100.ocultar();
    }
 
    canvas.style.height='600px';
@@ -105,13 +89,22 @@ borrar=function(){
   canvas.style.visibility='hidden';
   canvas.style.height='0px';
 
-  var $lecturas=document.querySelector('#lecturas');
-  if ($lecturas!==null){
-    $lecturas.innerHTML="";
-  }
+  if(this.moduloCta300!==undefined){
+    this.moduloCta300.ocultar();
+   }
+   if(this.moduloCta100!==undefined){
+    this.moduloCta100.ocultar();
+   }
+   if(this.moduloUta!==undefined){
+    this.moduloUta.ocultar();
+   }
+  // var $lecturas=document.querySelector('#lecturas');
+  // if ($lecturas!==null){
+  //   $lecturas.innerHTML="";
+  // }
 
-  var $comando=document.querySelector('#id-comando');
-  if ($lecturas!==null){
-    $comando.innerHTML="";
-  }
+  // var $comando=document.querySelector('#id-comando');
+  // if ($lecturas!==null){
+  //   $comando.innerHTML="";
+  // }
 }

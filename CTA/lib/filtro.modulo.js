@@ -58,12 +58,12 @@ ModuloFiltro.prototype={
   },
 
   ocultar:function(){
-    this.bTapado.style.visibility='hidden';
-    this.label.style.visibility='hidden';
+    this.bTapado.style.display='none';
+    this.label.style.display='none';
   },
   ver:function(){
-    this.bTapado.style.visibility='visible';
-    this.label.style.visibility='visible';
+    this.bTapado.style.display='inherit';
+    this.label.style.display='inherit';
   },
   graficar: function(){
     //canvas
