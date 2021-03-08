@@ -80,8 +80,8 @@ Instrumento.prototype={
     this.bDiv.style.display='none';
   },
   ver:function(){
-    this.$instrumento.style.display='inherit';
-    this.bDiv.style.display='inherit';
+    this.$instrumento.style.display='flex';
+    this.bDiv.style.display='flex';
   },
   cambiarMedicion:function(e){
     this.setMedicion(parseFloat(e.target.value));

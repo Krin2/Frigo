@@ -22,9 +22,9 @@ ModuloFiltro.prototype={
   },
   crearComando: function(){
     var menuComando= document.querySelector('#id-comando');
-    var div=document.createElement('div');
-    div.className='col1';
-    div.gridArea='col1';
+    this.div=document.createElement('div');
+    this.div.className='col1';
+    this.div.gridArea='col1';
 
     //Texto
     this.label=document.createElement('label');
@@ -35,7 +35,7 @@ ModuloFiltro.prototype={
     this.label.textContent=this.nombre;
     this.label.style.color='rgba(50,0,255,1)';
     this.label.style.verticalAlign='middle';
-    div.append(this.label);
+    this.div.append(this.label);
 
     //Barra de filtro tapado
     this.bTapado=document.createElement('input');
@@ -52,18 +52,20 @@ ModuloFiltro.prototype={
     this.bTapado.style.background='rgba(102,142,153,1)';
     this.bTapado.style.verticalAlign='middle';
     this.bTapado.onchange=this.cambio.bind(this);
-    div.append(this.bTapado);
+    this.div.append(this.bTapado);
 
-    menuComando.append(div);
+    menuComando.append(this.div);
   },
 
   ocultar:function(){
     this.bTapado.style.display='none';
+    this.div.style.display='none';
     this.label.style.display='none';
   },
   ver:function(){
-    this.bTapado.style.display='inherit';
-    this.label.style.display='inherit';
+    this.bTapado.style.display='inline-block';
+    this.div.style.display='block';
+    this.label.style.display='inline';
   },
   graficar: function(){
     //canvas

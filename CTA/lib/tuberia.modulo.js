@@ -18,9 +18,9 @@ ModuloTuberia.prototype={
 
   crearComando: function(){
     var menuComando= document.querySelector('#id-comando');
-    var div=document.createElement('div');
-    div.className='col2';
-    div.gridArea='col2';
+    this.div=document.createElement('div');
+    this.div.className='col2';
+    this.div.gridArea='col2';
 
     //Texto
     this.label=document.createElement('label');
@@ -31,7 +31,7 @@ ModuloTuberia.prototype={
     this.label.textContent=this.nombre;
     this.label.style.color='rgba(50,0,255,1)';
     this.label.style.verticalAlign='middle';
-    div.append(this.label);
+    this.div.append(this.label);
 
     //Barra de abrir
     this.bEstado=document.createElement('input');
@@ -48,18 +48,20 @@ ModuloTuberia.prototype={
     this.bEstado.style.background='rgba(102,142,153,1)';
     this.bEstado.style.verticalAlign='middle';
     this.bEstado.onchange=this.cambiarEstado.bind(this);
-    div.append(this.bEstado);
+    this.div.append(this.bEstado);
 
-    menuComando.append(div);
+    menuComando.append(this.div);
   },
 
   ocultar:function(){
     this.bEstado.style.display='none';
+    this.div.style.display='none';
     this.label.style.display='none';
   },
   ver:function(){
-    this.bEstado.style.display='inherit';
-    this.label.style.display='inherit';
+    this.bEstado.style.display='inline-block';
+    this.div.style.display='block';
+    this.label.style.display='inline';
   },
   graficar: function(){
       //canvas

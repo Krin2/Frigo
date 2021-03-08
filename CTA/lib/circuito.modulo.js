@@ -13,25 +13,15 @@ var ModuloCircuito= function(nombre,x,y,tipo,canvas){
 
 ModuloCircuito.prototype={
   iniciar:function(){
-    // this.bArrancar= document.getElementById(this.arrancarId);
-    // this.bDetener= document.getElementById(this.detenerId);
-
-    // this.bArrancar.style.color='rgba(118,118,118,1)';
-    // this.bArrancar.style.background='rgba(239,239,239,1)';
-    // this.bDetener.style.color='rgba(0,200,50,1)';
-    // this.bDetener.style.background='rgba(102,142,153,1)';
-
-    // this.bArrancar.onclick=this.arrancar.bind(this);
-    // this.bDetener.onclick=this.detener.bind(this);
     this.crearComando();
     this.graficar();
   },
 
   crearComando: function(){
     var menuComando= document.querySelector('#id-comando');
-    var div=document.createElement('div');
-    div.className='col2';
-    div.gridArea='col2';
+    this.div=document.createElement('div');
+    this.div.className='col2';
+    this.div.gridArea='col2';
 
     //Texto
     this.label=document.createElement('label');
@@ -41,7 +31,7 @@ ModuloCircuito.prototype={
     this.label.textContent=this.nombre;
     this.label.style.color='rgba(50,0,255,1)';
     this.label.style.verticalAlign='middle';
-    div.append(this.label);
+    this.div.append(this.label);
 
     //boton de arranque
     this.bArrancar=document.createElement('button');
@@ -54,7 +44,7 @@ ModuloCircuito.prototype={
     this.bArrancar.style.background='rgba(239,239,239,1)';
     this.bArrancar.style.verticalAlign='middle';
     this.bArrancar.onclick=this.arrancar.bind(this);
-    div.append(this.bArrancar);
+    this.div.append(this.bArrancar);
 
     //Boton de parada
     this.bDetener=document.createElement('button');
@@ -67,9 +57,9 @@ ModuloCircuito.prototype={
     this.bDetener.style.background='rgba(102,142,153,1)';
     this.bDetener.style.verticalAlign='middle';
     this.bDetener.onclick=this.detener.bind(this);
-    div.append(this.bDetener);
+    this.div.append(this.bDetener);
 
-    menuComando.append(div);
+    menuComando.append(this.div);
   },
 
   arrancar:function(e){
@@ -102,13 +92,15 @@ ModuloCircuito.prototype={
   ocultar:function(){
     this.bArrancar.style.display='none';
     this.bDetener.style.display='none';
+    this.div.style.display='none';
     this.label.style.display='none';
   },
 
   ver:function(){
-    this.bArrancar.style.display='inherit';
-    this.bDetener.style.display='inherit';
-    this.label.style.display='inherit';
+    this.bArrancar.style.display='inline-block';
+    this.bDetener.style.display='inline-block';
+    this.div.style.display='block';
+    this.label.style.display='inline';
   },
 
   graficar: function(){

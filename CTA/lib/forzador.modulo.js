@@ -28,9 +28,9 @@ ModuloForzador.prototype={
 
   crearComando: function(){
     var menuComando= document.querySelector('#id-comando');
-    var div=document.createElement('div');
-    div.className='col1';
-    div.gridArea='col1';
+    this.div=document.createElement('div');
+    this.div.className='col1';
+    this.div.gridArea='col1';
 
     //Texto
     this.label=document.createElement('label');
@@ -41,7 +41,7 @@ ModuloForzador.prototype={
     this.label.textContent=this.nombre;
     this.label.style.color='rgba(50,0,255,1)';
     this.label.style.verticalAlign='middle';
-    div.append(this.label);
+    this.div.append(this.label);
 
     //boton de arranque
     this.bArrancar=document.createElement('button');
@@ -54,7 +54,7 @@ ModuloForzador.prototype={
     this.bArrancar.style.background='rgba(239,239,239,1)';
     this.bArrancar.style.verticalAlign='middle';
     this.bArrancar.onclick=this.arrancar.bind(this);
-    div.append(this.bArrancar);
+    this.div.append(this.bArrancar);
 
     //Boton de parada
     this.bDetener=document.createElement('button');
@@ -67,7 +67,7 @@ ModuloForzador.prototype={
     this.bDetener.style.background='rgba(102,142,153,1)';
     this.bDetener.style.verticalAlign='middle';
     this.bDetener.onclick=this.detener.bind(this);
-    div.append(this.bDetener);
+    this.div.append(this.bDetener);
 
     //Barra de cambio de velocidad
     this.bVelocidad=document.createElement('input');
@@ -84,9 +84,9 @@ ModuloForzador.prototype={
     this.bVelocidad.style.background='rgba(102,142,153,1)';
     this.bVelocidad.style.verticalAlign='middle';
     this.bVelocidad.onchange=this.cambiarVelocidad.bind(this);
-    div.append(this.bVelocidad);
+    this.div.append(this.bVelocidad);
 
-    menuComando.append(div);
+    menuComando.append(this.div);
   },
   arrancar:function(e){
     this.setEstado('on');
@@ -119,13 +119,15 @@ ModuloForzador.prototype={
     this.bArrancar.style.display='none';
     this.bDetener.style.display='none';
     this.bVelocidad.style.display='none';
+    this.div.style.display='none';
     this.label.style.display='none';
   },
   ver:function(){
-    this.bArrancar.style.display='inherit';
-    this.bDetener.style.display='inherit';
-    this.bVelocidad.style.display='inherit';
-    this.label.style.display='inherit';
+    this.div.style.display='block';
+    this.bArrancar.style.display='inline-block';
+    this.bDetener.style.display='inline-block';
+    this.bVelocidad.style.display='inline-block';
+    this.label.style.display='inline';
   },
   
   cambiarVelocidad:function(e){

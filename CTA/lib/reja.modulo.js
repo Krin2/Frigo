@@ -31,9 +31,9 @@ ModuloReja.prototype={
 
   crearComando: function(){
     var menuComando= document.querySelector('#id-comando');
-    var div=document.createElement('div');
-    div.className='col2';
-    div.gridArea='col2';
+    this.div=document.createElement('div');
+    this.div.className='col2';
+    this.div.gridArea='col2';
 
     //Texto
     this.label=document.createElement('label');
@@ -44,7 +44,7 @@ ModuloReja.prototype={
     this.label.textContent=this.nombre;
     this.label.style.color='rgba(50,0,255,1)';
     this.label.style.verticalAlign='middle';
-    div.append(this.label);
+    this.div.append(this.label);
 
     //Barra de abrir
     this.bApertura=document.createElement('input');
@@ -61,18 +61,20 @@ ModuloReja.prototype={
     this.bApertura.style.background='rgba(102,142,153,1)';
     this.bApertura.style.verticalAlign='middle';
     this.bApertura.onchange=this.cambiarApertura.bind(this);
-    div.append(this.bApertura);
+    this.div.append(this.bApertura);
 
-    menuComando.append(div);
+    menuComando.append(this.div);
   },
 
   ocultar:function(){
     this.bApertura.style.display='none';
+    this.div.style.display='none';
     this.label.style.display='none';
   },
   ver:function(){
-    this.bApertura.style.display='inherit';
-    this.label.style.display='inherit';
+    this.bApertura.style.display='inline-block';
+    this.div.style.display='block';
+    this.label.style.display='inline';
   },
   cambiarApertura:function(e){
     this.setApertura(parseFloat(e.target.value));
