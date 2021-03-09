@@ -12,10 +12,11 @@
     <link rel="stylesheet" href="./CSS/menu.css">
     <link rel="stylesheet" href="./CSS/contenido.css">
     <link rel="stylesheet" href="./CSS/footer.css">
+    <link rel="stylesheet" href="index.css">
   </head>
 
   <body>
-
+<!-- Encabezado fijo en la pagina -->
     <header class="encabezado">
       <h1 class="p-titulo" >Simulación</h1>
       <div>
@@ -24,6 +25,7 @@
       </div>
     </header>
 
+    <!-- Menu fijo en la pagina -->
     <nav class="menu">
       <ul>
         <button onclick="crearCTA300()" class="boton1" class="inactive">CTA 300</button>
@@ -33,22 +35,24 @@
       </ul>
     </nav>
 
+    <!-- El contenedor ira cambiando el contenido dinamicamente -->
     <main class="contenedor">
+      <!-- Se usan canvas distintos para mantener la animación al pasar de una instalacion a otra -->
       <section class="canvas">
         <canvas id="canvas1" width="800px" height="600px"></canvas>
-        <canvas id="canvas2" width="800px" height="600px"></canvas>
-        <canvas id="canvas3" width="800px" height="600px"></canvas>
-        <script src="..\Eventos.js"></script>
-        <script src="../CTA/lib/sala.modulo.js"></script>
-        <script src="../CTA/lib/tuberia.modulo.js"></script>
-        <script src="../CTA/lib/forzador.modulo.js"></script>
-        <script src="../CTA/lib/reja.modulo.js"></script>
-        <script src="../CTA/lib/filtro.modulo.js"></script>
-        <script src="../CTA/lib/circuito.modulo.js"></script>
-        <script src="../CTA/lib/instrumento.modulo.js"></script>
-        <script src="../CTA/cta300.modulo.js"></script>
-        <script src="../CTA/cta100.modulo.js"></script>
-        <script src="../CTA/uta.modulo.js"></script>
+        <canvas id="canvas2" width="800px" height="350px"></canvas>
+        <canvas id="canvas3" width="800px" height="500px"></canvas>
+        <script src="./otros/Eventos.js"></script>
+        <script src="./CTA/lib/sala.modulo.js"></script>
+        <script src="./CTA/lib/tuberia.modulo.js"></script>
+        <script src="./CTA/lib/forzador.modulo.js"></script>
+        <script src="./CTA/lib/reja.modulo.js"></script>
+        <script src="./CTA/lib/filtro.modulo.js"></script>
+        <script src="./CTA/lib/circuito.modulo.js"></script>
+        <script src="./CTA/lib/instrumento.modulo.js"></script>
+        <script src="./CTA/cta300.modulo.js"></script>
+        <script src="./CTA/cta100.modulo.js"></script>
+        <script src="./CTA/uta.modulo.js"></script>
         <script src="index.js"></script>
       </section>
       <div id="lecturas" class="lecturas">
@@ -61,8 +65,9 @@
       </section>
     </main>
 
+<!-- Pie de página fijo en la pagina -->
     <footer>
-      <img src="../img/logo.png" alt="">
+      <img src="./img/logo.png" alt="">
       <address class="pie-de-pagina">
         <p><strong>VMC Refrigeración</strong></p>
         <p>Dirección: <strong>Roque Saenz Peña 729</strong></p>

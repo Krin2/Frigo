@@ -29,7 +29,7 @@ ModuloCircuito.prototype={
     this.label.style.marginRight='5px';
     this.label.style.verticalAlign='top';
     this.label.textContent=this.nombre;
-    this.label.style.color='rgba(50,0,255,1)';
+    this.label.style.color='rgba(50,200,150,1)';
     this.label.style.verticalAlign='middle';
     this.div.append(this.label);
 

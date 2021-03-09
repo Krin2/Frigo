@@ -61,6 +61,7 @@ Instrumento.prototype={
     bLabel.style['margin-left']= '5px';
     bLabel.style['margin']='right:5px';
     bLabel.style['vertical-align']= 'top';
+    bLabel.style.color='rgba(50,200,150,1)';
     bLabel.innerText=this.nombre+' ['+this.rangoMin+':'+this.rangoMax+']';
 
     $comando= document.getElementById("id-comando");

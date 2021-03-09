@@ -16,14 +16,10 @@
   left: 0px;
   top: 640px;
   justify-content: left;
-  /* display: flex;
-  flex-direction: column;
-  flex-grow: grow; */
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(3,1fr);
   grid-auto-flow: dense;
   grid-gap: 10px;
-  /* max-width: 700px; */
   grid-auto-rows: minmax(30px, auto);
 }
 
@@ -35,9 +31,6 @@
 }
 .col3{
   grid-column: 3/4;
-}
-.col4{
-  grid-column: 4/5;
 }
 
 td{
@@ -51,9 +44,7 @@ min-width: 180;
   grid-gap: 10px;
   max-width: 700px;
 }
-/* .instrumento{
-  height: 20px;
-} */
+
 .instrumento:hover{
   /* forma */
   border-color: red;
